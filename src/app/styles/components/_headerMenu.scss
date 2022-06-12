@@ -1,0 +1,56 @@
+@use '../utils' as *;
+
+.header {
+  background-color: var(--cl-vdark-blue);
+  padding-block: rem(15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__menu {
+    display: none;
+
+    & li {
+      margin-left: rem(30);
+      padding-bottom: 10px;
+    }
+
+    a {
+      color: var(--cl-body);
+      font-family: var(--ff-ibm);
+      text-transform: uppercase;
+      transition: var(--transition-3s);
+      letter-spacing: rem(1.3);
+      font-weight: bold;
+      padding-block: rem(15);
+
+      &:hover {
+        color: var(--cl-accent);
+      }
+    }
+
+    @include breakpoint(medium) {
+      display: flex;
+    }
+  }
+
+  .btn-menu {
+    background: none;
+    border: none;
+    color: var(--cl-accent);
+    font-size: rem(26);
+    cursor: pointer;
+
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+}

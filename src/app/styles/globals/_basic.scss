@@ -35,3 +35,23 @@ body {
 .section {
   padding-block: rem(30);
 }
+
+.titulo {
+  font-family: var(--ff-playfair);
+  font-size: rem(40);
+  grid-column: 1 / -1;
+  color: var(--cl-white);
+  margin-bottom: rem(16);
+  @include breakpoint(medium) {
+    font-size: rem(96);
+  }
+}
+
+.show {
+  display: block !important;
+}
+
+.logo a {
+  font-size: rem(26);
+  color: var(--cl-accent);
+}
