@@ -172,4 +172,35 @@ body {
   }
 }
 
+.curiosidades__lista {
+  padding-top: 1.25rem;
+}
+.curiosidades__lista dt {
+  font-family: var(--ff-ibm);
+  position: relative;
+  padding-left: 2.5rem;
+  color: var(--cl-accent);
+  font-weight: bold;
+  margin-bottom: 0.9375rem;
+  cursor: pointer;
+}
+.curiosidades__lista dt::before {
+  content: "";
+  background: var(--cl-white);
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.curiosidades__lista dd {
+  display: none;
+  margin-left: 40px;
+  margin-bottom: 1.25rem;
+  font-family: var(--ff-body);
+}
+
 /*# sourceMappingURL=styles.css.map */
