@@ -124,4 +124,52 @@ body {
   }
 }
 
+.sobre {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1.25rem;
+  margin-top: 5.625rem;
+}
+.sobre__planetas {
+  height: 23.125rem;
+  overflow-y: scroll;
+}
+.sobre__planetas li {
+  cursor: pointer;
+}
+.sobre__descricao section {
+  display: none;
+}
+.sobre__descricao h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0.0875rem;
+  text-transform: uppercase;
+  font-family: var(--ff-ibm);
+  color: var(--cl-white);
+  position: relative;
+  padding-left: 1.875rem;
+  margin-bottom: 1.25rem;
+}
+.sobre__descricao h2::before {
+  content: "";
+  background: var(--cl-accent);
+  display: inline-block;
+  height: 0.625rem;
+  width: 0.625rem;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sobre__descricao p {
+  font-family: var(--ff-body);
+  margin-bottom: 1rem;
+}
+@media (min-width: 43.75em) {
+  .sobre {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
