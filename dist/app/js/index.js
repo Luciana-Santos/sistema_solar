@@ -50,7 +50,7 @@ function outsideClick(element, events, callback) {
   var outside = 'data-outside';
 
   function handleOusideClick(event) {
-    if (!element.constains(event.target)) {
+    if (!element.contains(event.target)) {
       element.removeAttribute(outside);
       events.forEach(function (userEvent) {
         html.removeEventListener(userEvent, handleOusideClick);
@@ -59,7 +59,7 @@ function outsideClick(element, events, callback) {
     }
   }
 
-  if (!element.hasAttibute(outside)) {
+  if (!element.hasAttribute(outside)) {
     events.forEach(function (userEvent) {
       html.addEventListener(userEvent, handleOusideClick);
     });
