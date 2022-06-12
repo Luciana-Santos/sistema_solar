@@ -1,3 +1,3 @@
-import helloWorld from './modules/helloWorld';
+import initDropdownMenu from './modules/dropdownMenu';
 
-helloWorld();
+initDropdownMenu();

@@ -2,18 +2,69 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/app/js/modules/helloWorld.js":
-/*!******************************************!*\
-  !*** ./src/app/js/modules/helloWorld.js ***!
-  \******************************************/
+/***/ "./src/app/js/modules/dropdownMenu.js":
+/*!********************************************!*\
+  !*** ./src/app/js/modules/dropdownMenu.js ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ helloWorld)
+/* harmony export */   "default": () => (/* binding */ initDropdownMenu)
 /* harmony export */ });
-function helloWorld() {
-  console.log('Hello, world!');
+/* harmony import */ var _outsideClick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./outsideClick */ "./src/app/js/modules/outsideClick.js");
+
+function initDropdownMenu() {
+  function handleClick(event) {
+    var _this = this;
+
+    event.preventDefault();
+    this.classList.add('ativo');
+    (0,_outsideClick__WEBPACK_IMPORTED_MODULE_0__["default"])(this, ['touchstart', 'click'], function () {
+      _this.classList.remove('ativo');
+    });
+  }
+
+  var dropdownMenus = document.querySelectorAll('[data-dropdown]');
+  dropdownMenus.forEach(function (menu) {
+    ['touchstart', 'click'].forEach(function (userEvent) {
+      menu.addEventListener(userEvent, handleClick);
+    });
+  });
+}
+
+/***/ }),
+
+/***/ "./src/app/js/modules/outsideClick.js":
+/*!********************************************!*\
+  !*** ./src/app/js/modules/outsideClick.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ outsideClick)
+/* harmony export */ });
+function outsideClick(element, events, callback) {
+  var html = document.documentElement;
+  var outside = 'data-outside';
+
+  function handleOusideClick(event) {
+    if (!element.constains(event.target)) {
+      element.removeAttribute(outside);
+      events.forEach(function (userEvent) {
+        html.removeEventListener(userEvent, handleOusideClick);
+      });
+      callback();
+    }
+  }
+
+  if (!element.hasAttibute(outside)) {
+    events.forEach(function (userEvent) {
+      html.addEventListener(userEvent, handleOusideClick);
+    });
+    element.setAttribute(outside, '');
+  }
 }
 
 /***/ })
@@ -81,9 +132,9 @@ var __webpack_exports__ = {};
   !*** ./src/app/js/index.js ***!
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_helloWorld__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/helloWorld */ "./src/app/js/modules/helloWorld.js");
+/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./src/app/js/modules/dropdownMenu.js");
 
-(0,_modules_helloWorld__WEBPACK_IMPORTED_MODULE_0__["default"])();
+(0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__["default"])();
 })();
 
 /******/ })()

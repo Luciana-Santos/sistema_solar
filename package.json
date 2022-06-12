@@ -5,7 +5,7 @@
   "main": "dist/index.html",
   "author": "LucianaSantos",
   "scripts": {
-    "build:sass": "sass src/app/styles:dist/css",
+    "build:sass": "sass src/app/styles:dist/css/",
     "build:js": "webpack --mode production",
     "copy:html": "copyfiles -u 1 ./src/*.html dist",
     "copy:assets": "copyfiles -u 1 ./src/assets/**/* dist",
