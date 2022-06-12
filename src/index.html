@@ -20,7 +20,30 @@
 </head>
 
 <body>
+  <header class="header">
+    <nav class="container header__nav">
+      <div class="logo ">
+        <a href="index.html"><i class="fa-solid fa-star-and-crescent"></i></a>
+      </div>
 
+      <ul data-menu="list" class="header__menu">
+        <li><a href="index.html">Home</a></li>
+        <li data-dropdown><a href="#">Sobre</a>
+          <ul class="menu-dropdown">
+            <li><a href="#curiosidades">Curiosidades</a></li>
+            <li><a href="#numeros">Números</a></li>
+            <li><a href="#">Equipe</a></li>
+            <li><a href="#">Missão e Valores</a></li>
+          </ul>
+        </li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+
+      <button data-menu="btn" class="btn-menu"><i class="fa fa-bars"></i></button>
+    </nav>
+  </header>
 
   <script src="./app/js/index.js" defer></script>
 </body>
