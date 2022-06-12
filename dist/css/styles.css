@@ -203,4 +203,28 @@ body {
   font-family: var(--ff-body);
 }
 
+.numeros__wrapper {
+  padding-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.875rem;
+}
+.numeros__item {
+  padding-block: 0.625rem 1.25rem;
+}
+.numeros__item h2 {
+  max-width: 7.5rem;
+  margin-bottom: 0.625rem;
+  font-family: var(--ff-playfair);
+  line-height: 1.2;
+}
+.numeros__item p, .numeros__item span {
+  color: var(--cl-accent);
+  font-size: 1.5rem;
+  font-family: var(--ff-ibm);
+}
+.numeros__item p {
+  font-size: 1rem;
+}
+
 /*# sourceMappingURL=styles.css.map */
