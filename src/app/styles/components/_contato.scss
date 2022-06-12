@@ -1,0 +1,52 @@
+@use '../utils' as *;
+
+.contato {
+  display: grid;
+  gap: 20px;
+
+  .mapa {
+    max-width: 280px;
+  }
+
+  &__info {
+
+    li {
+      position: relative;
+      padding-left: rem(20);
+      font-family: var(--ff-body);
+      margin-bottom: rem(10);
+
+      &::before {
+        content: '';
+        background: var(--cl-accent);
+        display: inline-block;
+        width: rem(8);
+        height: rem(8);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
+
+    .aberto {
+
+      &::after {
+        content: '';
+        background: #00FF00;
+        // background: #FF0000;
+        display: inline-block;
+        width: rem(8);
+        height: rem(8);
+        border-radius: 50%;
+        border: 1px solid #fff;
+        margin-left: rem(10);
+      }
+    }
+  }
+
+  @include breakpoint(medium) {
+    grid-template-columns: 300px 1fr;
+  }
+}

@@ -227,4 +227,45 @@ body {
   font-size: 1rem;
 }
 
+.contato {
+  display: grid;
+  gap: 20px;
+}
+.contato .mapa {
+  max-width: 280px;
+}
+.contato__info li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-family: var(--ff-body);
+  margin-bottom: 0.625rem;
+}
+.contato__info li::before {
+  content: "";
+  background: var(--cl-accent);
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.contato__info .aberto::after {
+  content: "";
+  background: #00FF00;
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  margin-left: 0.625rem;
+}
+@media (min-width: 43.75em) {
+  .contato {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
