@@ -5,20 +5,20 @@
   "main": "dist/index.html",
   "author": "LucianaSantos",
   "scripts": {
-    "build:sass": "sass src/app/styles:dist/css/",
+    "build:sass": "sass src/app/styles:dist/app/styles/",
     "build:js": "webpack --mode production",
     "copy:html": "copyfiles -u 1 ./src/*.html dist",
     "copy:assets": "copyfiles -u 1 ./src/assets/**/* dist",
     "copy": "npm-run-all --parallel copy:*",
     "watch:html": "onchange \"src/*.html\" -- npm run copy:html",
     "watch:js": "webpack --mode development --watch",
-    "watch:sass": "sass  --watch src/app/styles:dist/css",
+    "watch:sass": "sass  --watch src/app/styles:dist/app/styles",
     "watch:assets": "onchange \"src/assets/**/*\" -- npm run copy:assets",
     "watch": "npm-run-all --parallel watch:*",
     "serve": "browser-sync start --server dist --files dist",
     "start": "npm-run-all copy --parallel watch serve",
     "build": "npm-run-all copy:html dist:*",
-    "postbuild": "postcss dist/css/*.css -u autoprefixer cssnano -r"
+    "postbuild": "postcss dist/app/styles/*.css -u autoprefixer cssnano -r"
   },
   "dependencies": {
     "autoprefixer": "^10.4.2",
