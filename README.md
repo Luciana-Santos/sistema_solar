@@ -1,2 +1,3 @@
-# sistema_solar
- Projeto final do curso de JavaScript da Origamid.
+# Sistema Solar
+
+Projeto final do curso de JavaScript da Origamid.
