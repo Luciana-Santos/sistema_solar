@@ -12,14 +12,20 @@
   &__nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
   }
 
   &__menu {
-    display: none;
+    display: block;
+    position: absolute;
+    right: 45px;
+    top: 50px;
+    background: var(--cl-vdark-blue);
+    padding-inline: rem(20);
+    padding-block: rem(20);
 
     & li {
-      margin-left: rem(30);
+      // margin-left: rem(30); vai para o media query
       padding-bottom: 10px;
     }
 
@@ -39,6 +45,11 @@
 
     @include breakpoint(medium) {
       display: flex;
+    }
+
+    &.ativo {
+      display: block;
+      animation: show-right .3s forwards;
     }
   }
 

@@ -13,11 +13,11 @@
   }
 
   .menu-dropdown {
-    position: absolute;
-    top: rem(34);
+    margin-top: 10px;
+    position: static;
+    top: rem(40);
     background-color: var(--cl-accent);
     z-index: 100;
-    border: 2px solid var(--cl-body);
 
     li {
       margin: 0;
@@ -36,12 +36,17 @@
       content: '';
       display: block;
       position: absolute;
-      top: -11px;
+      top: -10px;
+      left: 6px;
       width: 0px;
       height: 0px;
       border-bottom: 10px solid var(--cl-accent);
       border-left: 10px solid transparent;
       border-right: 10px solid transparent;
+    }
+
+    @include breakpoint(medium) {
+      position: absolute;
     }
   }
 }

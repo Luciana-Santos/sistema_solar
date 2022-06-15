@@ -35,6 +35,45 @@ function initDropdownMenu() {
 
 /***/ }),
 
+/***/ "./src/app/js/modules/menuMobile.js":
+/*!******************************************!*\
+  !*** ./src/app/js/modules/menuMobile.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ initMenuMobile)
+/* harmony export */ });
+/* harmony import */ var _outsideClick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./outsideClick */ "./src/app/js/modules/outsideClick.js");
+
+function initMenuMobile() {
+  var menuBtn = document.querySelector('[data-menu="btn"]');
+  var menuList = document.querySelector('[data-menu="list"]');
+  var events = ['click', 'touchstart'];
+  var active = 'ativo';
+
+  function openMenu() {
+    menuList.classList.add(active);
+    menuBtn.classList.add(active);
+    console.log('abriu');
+    (0,_outsideClick__WEBPACK_IMPORTED_MODULE_0__["default"])(menuList, events, function () {
+      menuList.classList.remove(active);
+      menuBtn.classList.remove(active);
+      console.log('fechou');
+    });
+  }
+
+  if (menuBtn) {
+    openMenu();
+    events.forEach(function (userEvent) {
+      menuBtn.addEventListener(userEvent, openMenu);
+    });
+  }
+}
+
+/***/ }),
+
 /***/ "./src/app/js/modules/outsideClick.js":
 /*!********************************************!*\
   !*** ./src/app/js/modules/outsideClick.js ***!
@@ -61,7 +100,9 @@ function outsideClick(element, events, callback) {
 
   if (!element.hasAttribute(outside)) {
     events.forEach(function (userEvent) {
-      html.addEventListener(userEvent, handleOusideClick);
+      setTimeout(function () {
+        return html.addEventListener(userEvent, handleOusideClick);
+      });
     });
     element.setAttribute(outside, '');
   }
@@ -133,8 +174,11 @@ var __webpack_exports__ = {};
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./src/app/js/modules/dropdownMenu.js");
+/* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
+
 
 (0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__["default"])();
+(0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_1__["default"])();
 })();
 
 /******/ })()
