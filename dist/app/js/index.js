@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/app/js/modules/dropdownMenu.js":
@@ -8,6 +7,7 @@
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ initDropdownMenu)
@@ -41,6 +41,7 @@ function initDropdownMenu() {
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ initMenuMobile)
@@ -79,6 +80,7 @@ function initMenuMobile() {
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ outsideClick)
@@ -106,6 +108,16 @@ function outsideClick(element, events, callback) {
     element.setAttribute(outside, '');
   }
 }
+
+/***/ }),
+
+/***/ "./src/app/js/modules/scrollSuave.js":
+/*!*******************************************!*\
+  !*** ./src/app/js/modules/scrollSuave.js ***!
+  \*******************************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\luciy\\OneDrive\\Documentos\\GITHUB\\sistema_solar\\src\\app\\js\\modules\\scrollSuave.js: Unexpected token (3:0)\n\n\u001b[0m \u001b[90m 1 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m \u001b[36mfunction\u001b[39m initScrollSuave() {\u001b[0m\n\u001b[0m \u001b[90m 2 |\u001b[39m   \u001b[36mconst\u001b[39m \u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 3 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m\u001b[0m\n    at instantiate (C:\\Users\\luciy\\OneDrive\\Documentos\\GITHUB\\sistema_solar\\node_modules\\@babel\\parser\\lib\\index.js:72:32)\n    at constructor (C:\\Users\\luciy\\OneDrive\\Documentos\\GITHUB\\sistema_solar\\node_modules\\@babel\\parser\\lib\\index.js:358:12)\n    at Parser.raise (C:\\Users\\luciy\\OneDrive\\Documentos\\GITHUB\\sistema_solar\\node_modules\\@babel\\parser\\lib\\index.js:3341:19)\n    at Parser.unexpected (C:\\Users\\luciy\\OneDrive\\Documentos\\GITHUB\\sistema_solar\\node_modules\\@babel\\parser\\lib\\index.js:3379:16)\n    at Parser.parseIdentifierName (C:\\Users\\luciy\\OneDrive\\Documentos\\GITHUB\\sistema_solar\\node_modules\\@babel\\parser\\lib\\index.js:14087:18)\n    at Parser.parseIdentifier (C:\\Users\\luciy\\OneDrive\\Documentos\\GITHUB\\sistema_solar\\node_modules\\@babel\\parser\\lib\\index.js:14067:23)\n    at Parser.parseBindingAtom (C:\\Users\\luciy\\OneDrive\\Documentos\\GITHUB\\sistema_solar\\node_modules\\@babel\\parser\\lib\\index.js:11936:17)\n    at Parser.parseVarId (C:\\Users\\luciy\\OneDrive\\Documentos\\GITHUB\\sistema_solar\\node_modules\\@babel\\parser\\lib\\index.js:15400:20)\n    at Parser.parseVar (C:\\Users\\luciy\\OneDrive\\Documentos\\GITHUB\\sistema_solar\\node_modules\\@babel\\parser\\lib\\index.js:15375:12)\n    at Parser.parseVarStatement (C:\\Users\\luciy\\OneDrive\\Documentos\\GITHUB\\sistema_solar\\node_modules\\@babel\\parser\\lib\\index.js:15178:10)");
 
 /***/ })
 
@@ -136,6 +148,18 @@ function outsideClick(element, events, callback) {
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -166,18 +190,23 @@ function outsideClick(element, events, callback) {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!*****************************!*\
   !*** ./src/app/js/index.js ***!
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./src/app/js/modules/dropdownMenu.js");
 /* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
+/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
+/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_scrollSuave__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 (0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__["default"])();
 (0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_1__["default"])();
+_modules_scrollSuave__WEBPACK_IMPORTED_MODULE_2___default()();
 })();
 
 /******/ })()
