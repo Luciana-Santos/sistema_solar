@@ -12,7 +12,10 @@
   &__nav {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+
+    @include breakpoint(medium) {
+      align-items: center;
+    }
   }
 
   &__menu {
@@ -22,7 +25,6 @@
     top: 0px;
     background: var(--cl-vdark-blue);
     padding-block: rem(50) rem(20);
-    
     box-shadow: -2px 2px 2px 0 rgba(90, 221, 210, 0.1);
 
     a {
@@ -39,15 +41,26 @@
       &:hover {
         color: var(--cl-accent);
       }
-    }
 
-    @include breakpoint(medium) {
-      display: flex;
+      @include breakpoint(medium) {
+        padding-inline: 0;
+      }
     }
 
     &.ativo {
       display: block;
       animation: show-right .3s forwards;
+    }
+
+    @include breakpoint(medium) {
+      position: relative;
+      display: flex;
+      box-shadow: none;
+      padding-block: 0;
+
+      li {
+        margin-left: rem(30);
+      }
     }
   }
 
@@ -88,10 +101,14 @@
         transform: translateY(10px);
       }
   
-      @include breakpoint(medium) {
-        display: none;
-      }
+    }
+    @include breakpoint(medium) {
+      display: none;
+    }
   }
+
+  @include breakpoint(medium) {
+    box-shadow: -2px 2px 2px 0 rgba(90, 221, 210, 0.04);
   }
 }
 
