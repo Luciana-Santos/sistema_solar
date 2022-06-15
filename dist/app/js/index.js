@@ -53,19 +53,18 @@ function initMenuMobile() {
   var events = ['click', 'touchstart'];
   var active = 'ativo';
 
-  function openMenu() {
-    menuList.classList.add(active);
-    menuBtn.classList.add(active);
-    console.log('abriu');
-    (0,_outsideClick__WEBPACK_IMPORTED_MODULE_0__["default"])(menuList, events, function () {
-      menuList.classList.remove(active);
-      menuBtn.classList.remove(active);
-      console.log('fechou');
-    });
-  }
-
   if (menuBtn) {
-    openMenu();
+    var openMenu = function openMenu() {
+      menuList.classList.add(active);
+      menuBtn.classList.add(active);
+      console.log('abriu');
+      (0,_outsideClick__WEBPACK_IMPORTED_MODULE_0__["default"])(menuList, events, function () {
+        menuList.classList.remove(active);
+        menuBtn.classList.remove(active);
+        console.log('fechou');
+      });
+    };
+
     events.forEach(function (userEvent) {
       menuBtn.addEventListener(userEvent, openMenu);
     });

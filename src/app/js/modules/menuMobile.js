@@ -6,19 +6,17 @@ export default function initMenuMobile() {
   const events = ['click', 'touchstart'];
   const active = 'ativo';
 
-  function openMenu() {
-    menuList.classList.add(active);
-    menuBtn.classList.add(active);
-    console.log('abriu');
-    outsideClick(menuList, events, () => {
-      menuList.classList.remove(active);
-      menuBtn.classList.remove(active);
-      console.log('fechou');
-    });
-  }
-
   if (menuBtn) {
-    openMenu();
+    function openMenu() {
+      menuList.classList.add(active);
+      menuBtn.classList.add(active);
+      console.log('abriu');
+      outsideClick(menuList, events, () => {
+        menuList.classList.remove(active);
+        menuBtn.classList.remove(active);
+        console.log('fechou');
+      });
+    }
 
     events.forEach((userEvent) => {
       menuBtn.addEventListener(userEvent, openMenu);

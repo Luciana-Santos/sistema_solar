@@ -4,60 +4,32 @@
   position: relative;
 
   & .menu-dropdown {
-    display: none;
-  }
-
-  &:hover .menu-dropdown, &.ativo .menu-dropdown {
-    display: block;
-    animation: show-up .3s forwards;
-  }
-
-  .menu-dropdown {
-    margin-top: 10px;
-    position: static;
-    top: rem(40);
     background-color: var(--cl-accent);
-    z-index: 100;
-
-    li {
-      margin: 0;
-    }
+    position: static;
+    animation: show-up .3s forwards;
 
     a {
-      display: block;
-      padding: rem(5) rem(20);
+      margin-left: rem(15);
 
       &:hover {
+        font-weight: bold;
         color: var(--cl-white);
       }
     }
 
     &::before {
       content: '';
-      display: block;
       position: absolute;
       top: -10px;
-      left: 6px;
-      width: 0px;
-      height: 0px;
-      border-bottom: 10px solid var(--cl-accent);
+      left: 20px;
+      display: block;
+      height: rem(10);
+      width: rem(10);
       border-left: 10px solid transparent;
       border-right: 10px solid transparent;
-    }
-
-    @include breakpoint(medium) {
-      position: absolute;
+      border-bottom: 10px solid var(--cl-accent);
     }
   }
+  
 }
 
-@keyframes show-up {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 30px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0 , 0)
-  }
-}
