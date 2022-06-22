@@ -19,6 +19,14 @@
 
     section {
       display: none;
+
+      &.ativo {
+        display: block !important;
+      }
+
+      &.ativo.show-right {
+        animation: show-right .3s forwards;
+      }
     }
 
     h2 {
