@@ -103,6 +103,16 @@ body {
     transform: translate3d(0, 0, 0);
   }
 }
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    max-height: 200px;
+    opacity: 1;
+  }
+}
 .header {
   background-color: var(--cl-vdark-blue);
   padding-block: 0.9375rem;
@@ -302,6 +312,11 @@ body {
   margin-left: 40px;
   margin-bottom: 1.25rem;
   font-family: var(--ff-body);
+}
+
+[data-anime=accordion] dd.ativo {
+  display: block;
+  animation: slideDown 0.5s forwards;
 }
 
 .numeros__wrapper {

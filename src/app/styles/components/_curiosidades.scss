@@ -36,3 +36,8 @@
     }
   }
 }
+
+[data-anime="accordion"] dd.ativo {
+  display: block;
+  animation: slideDown .5s forwards;
+}

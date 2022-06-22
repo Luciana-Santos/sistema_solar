@@ -2,6 +2,37 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/app/js/modules/accordion.js":
+/*!*****************************************!*\
+  !*** ./src/app/js/modules/accordion.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ initAccordion)
+/* harmony export */ });
+function initAccordion() {
+  var accordionList = document.querySelectorAll('[data-anime="accordion"] dt');
+  console.log(accordionList);
+  var ativo = 'ativo';
+
+  function ativarAccordion() {
+    this.classList.toggle(ativo);
+    this.nextElementSibling.classList.toggle(ativo);
+  }
+
+  if (accordionList.length) {
+    accordionList[0].classList.add(ativo);
+    accordionList[0].nextElementSibling.classList.add(ativo);
+    accordionList.forEach(function (item) {
+      item.addEventListener('click', ativarAccordion);
+    });
+  }
+}
+
+/***/ }),
+
 /***/ "./src/app/js/modules/dropdownMenu.js":
 /*!********************************************!*\
   !*** ./src/app/js/modules/dropdownMenu.js ***!
@@ -236,18 +267,21 @@ var __webpack_exports__ = {};
   !*** ./src/app/js/index.js ***!
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./src/app/js/modules/dropdownMenu.js");
-/* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
-/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
-/* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
+/* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/accordion */ "./src/app/js/modules/accordion.js");
+/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./src/app/js/modules/dropdownMenu.js");
+/* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
+/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
+/* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
 
 
 
 
-(0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_0__["default"])();
-(0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_1__["default"])();
-(0,_modules_scrollSuave__WEBPACK_IMPORTED_MODULE_2__["default"])();
-(0,_modules_tabNav__WEBPACK_IMPORTED_MODULE_3__["default"])();
+
+(0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_1__["default"])();
+(0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_modules_scrollSuave__WEBPACK_IMPORTED_MODULE_3__["default"])();
+(0,_modules_tabNav__WEBPACK_IMPORTED_MODULE_4__["default"])();
+(0,_modules_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])();
 })();
 
 /******/ })()
