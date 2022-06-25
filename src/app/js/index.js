@@ -7,6 +7,7 @@ import initMenuMobile from './modules/menuMobile';
 import initScrollAnimation from './modules/scrollAnimation';
 import initScrollSuave from './modules/scrollSuave';
 import initTabNav from './modules/tabNav';
+import initTooltip from './modules/tootip';
 
 initDropdownMenu();
 initMenuMobile();
@@ -17,3 +18,4 @@ initAnimaNumeros();
 initFetchNumeros();
 initScrollAnimation();
 initFuncionamento();
+initTooltip();

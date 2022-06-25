@@ -801,6 +801,58 @@ function initTabNav() {
 
 /***/ }),
 
+/***/ "./src/app/js/modules/tootip.js":
+/*!**************************************!*\
+  !*** ./src/app/js/modules/tootip.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ initTooltip)
+/* harmony export */ });
+function initTooltip() {
+  var tootips = document.querySelectorAll('[data-tooltip]');
+  var onMouseMove = {
+    handleEvent: function handleEvent(event) {
+      this.tooltipBox.style.top = "".concat(event.pageY + 20, "px");
+      this.tooltipBox.style.left = "".concat(event.pageX + 20, "px");
+    }
+  };
+  var onMouseLeave = {
+    handleEvent: function handleEvent() {
+      this.tooltipBox.remove();
+      this.element.removeEventListener('mouseleave', onMouseLeave);
+      this.element.removeEventListener('mousemove', onMouseMove);
+    }
+  };
+
+  function criarTooltipBox(element) {
+    var tooltipBox = document.createElement('div');
+    var text = element.getAttribute('aria-label');
+    tooltipBox.classList.add('tooltip');
+    tooltipBox.innerText = text;
+    document.body.appendChild(tooltipBox);
+    return tooltipBox;
+  }
+
+  function onMouseOver() {
+    var tooltipBox = criarTooltipBox(this);
+    onMouseMove.tooltipBox = tooltipBox;
+    this.addEventListener('mousemove', onMouseMove);
+    onMouseLeave.tooltipBox = tooltipBox;
+    onMouseLeave.element = this;
+    this.addEventListener('mouseleave', onMouseLeave);
+  }
+
+  tootips.forEach(function (item) {
+    item.addEventListener('mouseover', onMouseOver);
+  });
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js ***!
@@ -935,6 +987,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scrollAnimation */ "./src/app/js/modules/scrollAnimation.js");
 /* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
 /* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
+/* harmony import */ var _modules_tootip__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/tootip */ "./src/app/js/modules/tootip.js");
+
 
 
 
@@ -953,6 +1007,7 @@ __webpack_require__.r(__webpack_exports__);
 (0,_modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_3__["default"])();
 (0,_modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_6__["default"])();
 (0,_modules_funcionamento__WEBPACK_IMPORTED_MODULE_4__["default"])();
+(0,_modules_tootip__WEBPACK_IMPORTED_MODULE_9__["default"])();
 })();
 
 /******/ })()
