@@ -30,19 +30,19 @@
       }
     }
 
-    .aberto {
+    [data-semana]::after {
+      content: '';
+      background: #FF0000;
+      display: inline-block;
+      width: rem(8);
+      height: rem(8);
+      border-radius: 50%;
+      border: 1px solid #fff;
+      margin-left: rem(10);
+    }
 
-      &::after {
-        content: '';
-        background: #00FF00;
-        // background: #FF0000;
-        display: inline-block;
-        width: rem(8);
-        height: rem(8);
-        border-radius: 50%;
-        border: 1px solid #fff;
-        margin-left: rem(10);
-      }
+    [data-semana].aberto::after {
+      background: #00FF00;
     }
   }
 
@@ -50,3 +50,4 @@
     grid-template-columns: 300px 1fr;
   }
 }
+

@@ -383,15 +383,18 @@ body {
   left: 0;
   transform: translateY(-50%);
 }
-.contato__info .aberto::after {
+.contato__info [data-semana]::after {
   content: "";
-  background: #00FF00;
+  background: #FF0000;
   display: inline-block;
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
   border: 1px solid #fff;
   margin-left: 0.625rem;
+}
+.contato__info [data-semana].aberto::after {
+  background: #00FF00;
 }
 @media (min-width: 43.75em) {
   .contato {

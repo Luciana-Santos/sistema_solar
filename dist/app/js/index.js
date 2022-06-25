@@ -598,6 +598,31 @@ function initFetchNumeros() {
 
 /***/ }),
 
+/***/ "./src/app/js/modules/funcionamento.js":
+/*!*********************************************!*\
+  !*** ./src/app/js/modules/funcionamento.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ initFuncionamento)
+/* harmony export */ });
+function initFuncionamento() {
+  var funcionamento = document.querySelector('[data-semana]');
+  var diasSemana = funcionamento.dataset.semana.split(',').map(Number);
+  var horarioSemana = funcionamento.dataset.horario.split(',').map(Number);
+  var dataAgora = new Date();
+  var diasAgora = dataAgora.getDay();
+  var horarioAgora = dataAgora.getHours();
+  var semanaAberto = diasSemana.indexOf(diasAgora) !== -1;
+  var horarioAberto = horarioAgora >= horarioSemana[0] && horarioAgora < horarioSemana[1];
+  if (semanaAberto && horarioAberto) funcionamento.classList.add('aberto');
+}
+
+/***/ }),
+
 /***/ "./src/app/js/modules/menuMobile.js":
 /*!******************************************!*\
   !*** ./src/app/js/modules/menuMobile.js ***!
@@ -905,10 +930,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_animaNumeros__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/animaNumeros */ "./src/app/js/modules/animaNumeros.js");
 /* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./src/app/js/modules/dropdownMenu.js");
 /* harmony import */ var _modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/fetchNumeros */ "./src/app/js/modules/fetchNumeros.js");
-/* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
-/* harmony import */ var _modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/scrollAnimation */ "./src/app/js/modules/scrollAnimation.js");
-/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
-/* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
+/* harmony import */ var _modules_funcionamento__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/funcionamento */ "./src/app/js/modules/funcionamento.js");
+/* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
+/* harmony import */ var _modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scrollAnimation */ "./src/app/js/modules/scrollAnimation.js");
+/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
+/* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
+
 
 
 
@@ -918,13 +945,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_2__["default"])();
-(0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_4__["default"])();
-(0,_modules_scrollSuave__WEBPACK_IMPORTED_MODULE_6__["default"])();
-(0,_modules_tabNav__WEBPACK_IMPORTED_MODULE_7__["default"])();
+(0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__["default"])();
+(0,_modules_scrollSuave__WEBPACK_IMPORTED_MODULE_7__["default"])();
+(0,_modules_tabNav__WEBPACK_IMPORTED_MODULE_8__["default"])();
 (0,_modules_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])();
 (0,_modules_animaNumeros__WEBPACK_IMPORTED_MODULE_1__["default"])();
 (0,_modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_3__["default"])();
-(0,_modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_5__["default"])();
+(0,_modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_6__["default"])();
+(0,_modules_funcionamento__WEBPACK_IMPORTED_MODULE_4__["default"])();
 })();
 
 /******/ })()
