@@ -8,24 +8,29 @@
     grid-template-columns: repeat(2, 1fr);
     gap: rem(30);
   }
-
-  &__item {
-    padding-block: rem(10) rem(20);
+  
   h2 {
-    max-width: rem(120);
+    max-width: rem(130);
     margin-bottom: rem(10);
     font-family: var(--ff-playfair);
     line-height: 1.2;
   }
 
-  p, span {
+  span {
     color: var(--cl-accent);
     font-size: rem(24);
     font-family: var(--ff-ibm);
+    display: block;
+    margin-top: rem(20);
   }
 
-  p {
-    font-size: rem(16);
-  }
+  .obs {
+    font-size: rem(12);
+    color: var(--cl-body);
+
+    span {
+      display: inline-block;
+      font-size: rem(14);
+    }
   }
 }
