@@ -1,7 +1,7 @@
 {
-  "name": "static-setup",
+  "name": "sistema-solar",
   "version": "1.0.0",
-  "description": "SASS compile|autoprefix|minimize and live-reload dev server using Browsersync for static HTML and JavaScript Webpack compiler.",
+  "description": "Projeto final do curso de JavaScript Completo da Origamid.",
   "main": "dist/index.html",
   "author": "LucianaSantos",
   "scripts": {
