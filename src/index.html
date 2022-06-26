@@ -37,7 +37,7 @@
         </li>
         <li><a href="#galeria">Galeria</a></li>
         <li><a href="#contato">Contato</a></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="login.html" data-modal="abrir">Login</a></li>
       </ul>
 
       <div data-menu="btn">
@@ -178,6 +178,19 @@
       </div>
     </div>
   </footer>
+
+  <section data-modal="container" class="modal-container">
+    <div class="modal">
+      <button class="fechar-btn" data-modal="fechar"><i class="fas fa-times"></i></button>
+      <form>
+        <label for="email">Email</label>
+        <input type="text" naem="email" id="email">
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" id="senha">
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+    </div>
+  </section>
 
   <script src="./app/js/index.js" defer></script>
 </body>

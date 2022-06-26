@@ -660,6 +660,44 @@ function initMenuMobile() {
 
 /***/ }),
 
+/***/ "./src/app/js/modules/modal.js":
+/*!*************************************!*\
+  !*** ./src/app/js/modules/modal.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ initModal)
+/* harmony export */ });
+function initModal() {
+  var abrirBtn = document.querySelector('[data-modal="abrir"]');
+  var fecharBtn = document.querySelector('[data-menu="fechar"]');
+  var containerModal = document.querySelector('[data-modal="container"]');
+
+  function toggleModal(event) {
+    event.preventDefault();
+    containerModal.classList.toggle('ativo');
+  }
+
+  function cliqueForaModal(event) {
+    event.preventDefault();
+
+    if (event.target === this) {
+      toggleModal(event);
+    }
+  }
+
+  if (abrirBtn && fecharBtn && containerModal) {
+    abrirBtn.addEventListener('click', toggleModal);
+    fecharBtn.addEventListener('click', toggleModal);
+    containerModal.addEventListener('click', cliqueForaModal);
+  }
+}
+
+/***/ }),
+
 /***/ "./src/app/js/modules/outsideClick.js":
 /*!********************************************!*\
   !*** ./src/app/js/modules/outsideClick.js ***!
@@ -984,10 +1022,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/fetchNumeros */ "./src/app/js/modules/fetchNumeros.js");
 /* harmony import */ var _modules_funcionamento__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/funcionamento */ "./src/app/js/modules/funcionamento.js");
 /* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
-/* harmony import */ var _modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scrollAnimation */ "./src/app/js/modules/scrollAnimation.js");
-/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
-/* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
-/* harmony import */ var _modules_tootip__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/tootip */ "./src/app/js/modules/tootip.js");
+/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/modal */ "./src/app/js/modules/modal.js");
+/* harmony import */ var _modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/scrollAnimation */ "./src/app/js/modules/scrollAnimation.js");
+/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
+/* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
+/* harmony import */ var _modules_tootip__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/tootip */ "./src/app/js/modules/tootip.js");
+
 
 
 
@@ -1000,14 +1040,15 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__["default"])();
-(0,_modules_scrollSuave__WEBPACK_IMPORTED_MODULE_7__["default"])();
-(0,_modules_tabNav__WEBPACK_IMPORTED_MODULE_8__["default"])();
+(0,_modules_scrollSuave__WEBPACK_IMPORTED_MODULE_8__["default"])();
+(0,_modules_tabNav__WEBPACK_IMPORTED_MODULE_9__["default"])();
 (0,_modules_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])();
 (0,_modules_animaNumeros__WEBPACK_IMPORTED_MODULE_1__["default"])();
 (0,_modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_3__["default"])();
-(0,_modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_6__["default"])();
+(0,_modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_7__["default"])();
 (0,_modules_funcionamento__WEBPACK_IMPORTED_MODULE_4__["default"])();
-(0,_modules_tootip__WEBPACK_IMPORTED_MODULE_9__["default"])();
+(0,_modules_tootip__WEBPACK_IMPORTED_MODULE_10__["default"])();
+(0,_modules_modal__WEBPACK_IMPORTED_MODULE_6__["default"])();
 })();
 
 /******/ })()

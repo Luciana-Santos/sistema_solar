@@ -124,6 +124,16 @@ body {
     opacity: 1;
   }
 }
+@keyframes modal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
 .header {
   background-color: var(--cl-vdark-blue);
   padding-block: 0.9375rem;
@@ -470,6 +480,87 @@ body {
   border-radius: 2px;
   top: 0;
   left: 0;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: hsla(228deg, 19%, 5%, 0.4);
+  width: 100%;
+  height: 100vh;
+  display: none;
+  place-items: center;
+}
+.modal-container.ativo {
+  display: grid;
+}
+.modal-container .ativo .modal {
+  animation: modal 0.3s forwards;
+}
+.modal-container .fechar-btn {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  border-radius: 50%;
+  font-size: 1.375rem;
+  display: grid;
+  place-items: center;
+  height: 45px;
+  width: 45px;
+  color: var(--cl-accent);
+  background: var(--cl-vdark-blue);
+  border: 3px solid var(--cl-accent);
+  box-shadow: 0 0 0 5px var(--cl-vdark-blue);
+  cursor: pointer;
+}
+.modal-container .modal {
+  background: var(--cl-vdark-blue);
+  border: 0.3125rem solid var(--cl-accent);
+  box-shadow: 0 0 0 15px var(--cl-vdark-blue);
+  position: relative;
+  padding: 2.5rem;
+  border-radius: 4px;
+  width: 37.5rem;
+  max-width: 80vw;
+}
+.modal-container .modal label {
+  display: block;
+  font-family: var(--ff-ibm);
+  font-weight: bold;
+  margin-bottom: 0.3125rem;
+}
+.modal-container .modal input {
+  width: 100%;
+  padding: 0.6875rem 0.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  border: 3px solid transparent;
+}
+.modal-container .modal input:focus {
+  border-color: var(--cl-accent);
+  outline: none;
+}
+.modal-container .modal .login-btn {
+  display: block;
+  font-size: 1rem;
+  background: var(--cl-vdark-blue);
+  border: 3px solid var(--cl-accent);
+  outline: none;
+  color: var(--cl-accent);
+  border-radius: 4px;
+  font-family: var(--ff-ibm);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.09375rem;
+  padding: 0.625rem 0.9375rem;
+  cursor: pointer;
+}
+.modal-container .modal .login-btn:hover {
+  background: var(--cl-accent);
+  color: var(--cl-vdark-blue);
 }
 
 /*# sourceMappingURL=styles.css.map */
