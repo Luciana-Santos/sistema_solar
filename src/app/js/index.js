@@ -6,13 +6,15 @@ import initFuncionamento from './modules/funcionamento';
 import initMenuMobile from './modules/menuMobile';
 import initModal from './modules/modal';
 import initScrollAnimation from './modules/scrollAnimation';
-import initScrollSuave from './modules/scrollSuave';
+import ScrollSuave from './modules/scrollSuave';
 import initTabNav from './modules/tabNav';
 import initTooltip from './modules/tootip';
 
+const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
+scrollSuave.init();
+
 initDropdownMenu();
 initMenuMobile();
-initScrollSuave();
 initTabNav();
 initAccordion();
 initAnimaNumeros();

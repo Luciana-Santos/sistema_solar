@@ -779,26 +779,56 @@ function initScrollAnimation() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initScrollSuave)
+/* harmony export */   "default": () => (/* binding */ ScrollSuave)
 /* harmony export */ });
-function initScrollSuave() {
-  var linksInternos = document.querySelectorAll('[data-menu="suave"] a[href^="#"]');
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 
-  function scrollToSection(e) {
-    e.preventDefault();
-    var href = this.getAttribute('href');
-    var section = document.querySelector(href);
-    var sectionTop = section.offsetTop - 60;
-    window.scrollTo({
-      top: sectionTop,
-      behavior: 'smooth'
-    });
+
+
+var ScrollSuave = /*#__PURE__*/function () {
+  function ScrollSuave(links) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, ScrollSuave);
+
+    this.linksInternos = document.querySelectorAll(links);
   }
 
-  linksInternos.forEach(function (link) {
-    link.addEventListener('click', scrollToSection);
-  });
-}
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(ScrollSuave, [{
+    key: "scrollToSection",
+    value: function scrollToSection(e) {
+      e.preventDefault();
+      var href = this.getAttribute('href');
+      var section = document.querySelector(href);
+      var sectionTop = section.offsetTop - 60;
+      window.scrollTo({
+        top: sectionTop,
+        behavior: 'smooth'
+      });
+    }
+  }, {
+    key: "addLinkEvent",
+    value: function addLinkEvent() {
+      var _this = this;
+
+      this.linksInternos.forEach(function (link) {
+        link.addEventListener('click', _this.scrollToSection);
+      });
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      if (this.linksInternos.length) {
+        this.addLinkEvent();
+      }
+
+      return this;
+    }
+  }]);
+
+  return ScrollSuave;
+}();
+
+
 
 /***/ }),
 
@@ -937,6 +967,57 @@ function _asyncToGenerator(fn) {
   };
 }
 
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _classCallCheck)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/createClass.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/createClass.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _createClass)
+/* harmony export */ });
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
+  return Constructor;
+}
+
 /***/ })
 
 /******/ 	});
@@ -1037,9 +1118,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var scrollSuave = new _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_8__["default"]('[data-menu="suave"] a[href^="#"]');
+scrollSuave.init();
 (0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__["default"])();
-(0,_modules_scrollSuave__WEBPACK_IMPORTED_MODULE_8__["default"])();
 (0,_modules_tabNav__WEBPACK_IMPORTED_MODULE_9__["default"])();
 (0,_modules_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])();
 (0,_modules_animaNumeros__WEBPACK_IMPORTED_MODULE_1__["default"])();

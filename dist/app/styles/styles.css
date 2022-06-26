@@ -306,6 +306,7 @@ body {
 
 .curiosidades__lista {
   padding-top: 1.25rem;
+  margin-top: -1.25rem;
 }
 .curiosidades__lista dt {
   font-family: var(--ff-ibm);
