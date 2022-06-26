@@ -1,6 +1,13 @@
 import initAnimaNumeros from './animaNumeros';
 
 export default function initFetchNumeros() {
+  function createData(num) {
+    const div = document.createElement('div');
+    div.classList.add('numero-data');
+    div.innerHTML = `<h2>${num.label}<span data-numero>${num.total}</span></h2>`;
+    return div;
+  }
+
   async function fetchNumeros(url) {
     try {
       const numResponse = await fetch(url);
@@ -14,13 +21,6 @@ export default function initFetchNumeros() {
     } catch (error) {
       console.log(error);
     }
-  }
-
-  function createData(num) {
-    const div = document.createElement('div');
-    div.classList.add('numero-data');
-    div.innerHTML = `<h2>${num.label}<span data-numero>${num.total}</span></h2>`;
-    return div;
   }
 
   fetchNumeros('./dados.json');

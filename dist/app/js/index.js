@@ -422,7 +422,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function initAccordion() {
   var accordionList = document.querySelectorAll('[data-anime="accordion"] dt');
-  console.log(accordionList);
   var ativo = 'ativo';
 
   function ativarAccordion() {
@@ -540,6 +539,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function initFetchNumeros() {
+  function createData(num) {
+    var div = document.createElement('div');
+    div.classList.add('numero-data');
+    div.innerHTML = "<h2>".concat(num.label, "<span data-numero>").concat(num.total, "</span></h2>");
+    return div;
+  }
+
   function fetchNumeros(_x) {
     return _fetchNumeros.apply(this, arguments);
   }
@@ -584,13 +590,6 @@ function initFetchNumeros() {
       }, _callee, null, [[0, 12]]);
     }));
     return _fetchNumeros.apply(this, arguments);
-  }
-
-  function createData(num) {
-    var div = document.createElement('div');
-    div.classList.add('numero-data');
-    div.innerHTML = "<h2>".concat(num.label, "<span data-numero>").concat(num.total, "</span></h2>");
-    return div;
   }
 
   fetchNumeros('./dados.json');
@@ -642,16 +641,16 @@ function initMenuMobile() {
   var events = ['click', 'touchstart'];
   var active = 'ativo';
 
-  if (menuBtn) {
-    var openMenu = function openMenu() {
-      menuList.classList.add(active);
-      menuBtn.classList.add(active);
-      (0,_outsideClick__WEBPACK_IMPORTED_MODULE_0__["default"])(menuList, events, function () {
-        menuList.classList.remove(active);
-        menuBtn.classList.remove(active);
-      });
-    };
+  function openMenu() {
+    menuList.classList.add(active);
+    menuBtn.classList.add(active);
+    (0,_outsideClick__WEBPACK_IMPORTED_MODULE_0__["default"])(menuList, events, function () {
+      menuList.classList.remove(active);
+      menuBtn.classList.remove(active);
+    });
+  }
 
+  if (menuBtn) {
     events.forEach(function (userEvent) {
       menuBtn.addEventListener(userEvent, openMenu);
     });
