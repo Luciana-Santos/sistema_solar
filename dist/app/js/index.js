@@ -460,6 +460,8 @@ var Accordion = /*#__PURE__*/function () {
         this.toggleAccordion(this.accordionList[0]);
         this.addAccordionEvent();
       }
+
+      return this;
     }
   }]);
 
@@ -958,6 +960,8 @@ var initTabNav = /*#__PURE__*/function () {
         this.ativarTab(0);
         this.addTabNavEvent();
       }
+
+      return this;
     }
   }]);
 

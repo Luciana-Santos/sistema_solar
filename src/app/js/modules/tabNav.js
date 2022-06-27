@@ -27,5 +27,6 @@ export default class initTabNav {
       this.ativarTab(0);
       this.addTabNavEvent();
     }
+    return this;
   }
 }
