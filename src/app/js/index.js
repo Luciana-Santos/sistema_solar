@@ -1,4 +1,4 @@
-import initAccordion from './modules/accordion';
+import Accordion from './modules/accordion';
 import initAnimaNumeros from './modules/animaNumeros';
 import initDropdownMenu from './modules/dropdownMenu';
 import initFetchNumeros from './modules/fetchNumeros';
@@ -13,10 +13,12 @@ import initTooltip from './modules/tootip';
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
 
+const accordion = new Accordion('[data-anime="accordion"] dt');
+accordion.init();
+
 initDropdownMenu();
 initMenuMobile();
 initTabNav();
-initAccordion();
 initAnimaNumeros();
 initFetchNumeros();
 initScrollAnimation();
