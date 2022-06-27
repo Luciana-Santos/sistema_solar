@@ -7,7 +7,7 @@ import initMenuMobile from './modules/menuMobile';
 import initModal from './modules/modal';
 import initScrollAnimation from './modules/scrollAnimation';
 import ScrollSuave from './modules/scrollSuave';
-import initTabNav from './modules/tabNav';
+import TabNav from './modules/tabNav';
 import initTooltip from './modules/tootip';
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
@@ -16,9 +16,14 @@ scrollSuave.init();
 const accordion = new Accordion('[data-anime="accordion"] dt');
 accordion.init();
 
+const tabNav = new TabNav(
+  '[data-tab="menu"] li',
+  '[data-tab="content"] section',
+);
+tabNav.init();
+
 initDropdownMenu();
 initMenuMobile();
-initTabNav();
 initAnimaNumeros();
 initFetchNumeros();
 initScrollAnimation();
