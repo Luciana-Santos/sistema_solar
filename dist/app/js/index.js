@@ -1224,7 +1224,7 @@ var accordion = new _modules_accordion__WEBPACK_IMPORTED_MODULE_0__["default"]('
 accordion.init();
 var tabNav = new _modules_tabNav__WEBPACK_IMPORTED_MODULE_9__["default"]('[data-tab="menu"] li', '[data-tab="content"] section');
 tabNav.init();
-var modal = new _modules_modal__WEBPACK_IMPORTED_MODULE_6__["default"]('[data-modal="abrir"]', '[data-menu="fechar"]', '[data-modal="container"]');
+var modal = new _modules_modal__WEBPACK_IMPORTED_MODULE_6__["default"]('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]');
 modal.init();
 (0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__["default"])();

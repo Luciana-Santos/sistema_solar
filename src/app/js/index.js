@@ -24,7 +24,7 @@ tabNav.init();
 
 const modal = new Modal(
   '[data-modal="abrir"]',
-  '[data-menu="fechar"]',
+  '[data-modal="fechar"]',
   '[data-modal="container"]',
 );
 modal.init();
