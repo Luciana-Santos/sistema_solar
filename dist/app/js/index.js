@@ -418,25 +418,55 @@ try {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initAccordion)
+/* harmony export */   "default": () => (/* binding */ Accordion)
 /* harmony export */ });
-function initAccordion() {
-  var accordionList = document.querySelectorAll('[data-anime="accordion"] dt');
-  var ativo = 'ativo';
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 
-  function ativarAccordion() {
-    this.classList.toggle(ativo);
-    this.nextElementSibling.classList.toggle(ativo);
+
+
+var Accordion = /*#__PURE__*/function () {
+  function Accordion(list) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Accordion);
+
+    this.accordionList = document.querySelectorAll(list);
+    this.activeClass = 'ativo';
   }
 
-  if (accordionList.length) {
-    accordionList[0].classList.add(ativo);
-    accordionList[0].nextElementSibling.classList.add(ativo);
-    accordionList.forEach(function (item) {
-      item.addEventListener('click', ativarAccordion);
-    });
-  }
-}
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Accordion, [{
+    key: "toggleAccordion",
+    value: function toggleAccordion(item) {
+      item.classList.toggle(this.activeClass);
+      item.nextElementSibling.classList.toggle(this.activeClass);
+    } // adiciona o evento nos itens da lista
+
+  }, {
+    key: "addAccordionEvent",
+    value: function addAccordionEvent() {
+      var _this = this;
+
+      this.accordionList.forEach(function (item) {
+        item.addEventListener('click', function () {
+          return _this.toggleAccordion(item);
+        });
+      });
+    } // inicia a função
+
+  }, {
+    key: "init",
+    value: function init() {
+      if (this.accordionList.length) {
+        // ativa o primeiro item
+        this.toggleAccordion(this.accordionList[0]);
+        this.addAccordionEvent();
+      }
+    }
+  }]);
+
+  return Accordion;
+}();
+
+
 
 /***/ }),
 
@@ -1120,10 +1150,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var scrollSuave = new _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_8__["default"]('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
+var accordion = new _modules_accordion__WEBPACK_IMPORTED_MODULE_0__["default"]('[data-anime="accordion"] dt');
+accordion.init();
 (0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__["default"])();
 (0,_modules_tabNav__WEBPACK_IMPORTED_MODULE_9__["default"])();
-(0,_modules_accordion__WEBPACK_IMPORTED_MODULE_0__["default"])();
 (0,_modules_animaNumeros__WEBPACK_IMPORTED_MODULE_1__["default"])();
 (0,_modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_3__["default"])();
 (0,_modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_7__["default"])();
