@@ -698,32 +698,71 @@ function initMenuMobile() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initModal)
+/* harmony export */   "default": () => (/* binding */ Modal)
 /* harmony export */ });
-function initModal() {
-  var abrirBtn = document.querySelector('[data-modal="abrir"]');
-  var fecharBtn = document.querySelector('[data-menu="fechar"]');
-  var containerModal = document.querySelector('[data-modal="container"]');
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 
-  function toggleModal(event) {
-    event.preventDefault();
-    containerModal.classList.toggle('ativo');
-  }
 
-  function cliqueForaModal(event) {
-    event.preventDefault();
 
-    if (event.target === this) {
-      toggleModal(event);
+var Modal = /*#__PURE__*/function () {
+  function Modal(abrirBtn, fecharBtn, containerModal) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Modal);
+
+    this.abrirBtn = document.querySelector(abrirBtn);
+    this.fecharBtn = document.querySelector(fecharBtn);
+    this.containerModal = document.querySelector(containerModal); // bind this ao callback
+    // para fazer referência
+    // ao objeto da classe
+
+    this.eventToggleModal = this.eventToggleModal.bind(this);
+    this.cliqueForaModal = this.cliqueForaModal.bind(this);
+  } // abre ou fecha o modal
+
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Modal, [{
+    key: "toggleModal",
+    value: function toggleModal() {
+      this.containerModal.classList.toggle('ativo');
     }
-  }
+  }, {
+    key: "eventToggleModal",
+    value: function eventToggleModal(event) {
+      event.preventDefault();
+      this.toggleModal();
+    }
+  }, {
+    key: "cliqueForaModal",
+    value: function cliqueForaModal(event) {
+      event.preventDefault();
 
-  if (abrirBtn && fecharBtn && containerModal) {
-    abrirBtn.addEventListener('click', toggleModal);
-    fecharBtn.addEventListener('click', toggleModal);
-    containerModal.addEventListener('click', cliqueForaModal);
-  }
-}
+      if (event.target === this.containerModal) {
+        this.toggleModal();
+      }
+    } // adiciona os eventos aos elementos do modal
+
+  }, {
+    key: "addModalEvent",
+    value: function addModalEvent() {
+      this.abrirBtn.addEventListener('click', this.eventToggleModal);
+      this.fecharBtn.addEventListener('click', this.eventToggleModal);
+      this.containerModal.addEventListener('click', this.cliqueForaModal);
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      if (this.abrirBtn && this.fecharBtn && this.containerModal) {
+        this.addModalEvent();
+      }
+
+      return this;
+    }
+  }]);
+
+  return Modal;
+}();
+
+
 
 /***/ }),
 
@@ -1185,6 +1224,8 @@ var accordion = new _modules_accordion__WEBPACK_IMPORTED_MODULE_0__["default"]('
 accordion.init();
 var tabNav = new _modules_tabNav__WEBPACK_IMPORTED_MODULE_9__["default"]('[data-tab="menu"] li', '[data-tab="content"] section');
 tabNav.init();
+var modal = new _modules_modal__WEBPACK_IMPORTED_MODULE_6__["default"]('[data-modal="abrir"]', '[data-menu="fechar"]', '[data-modal="container"]');
+modal.init();
 (0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__["default"])();
 (0,_modules_animaNumeros__WEBPACK_IMPORTED_MODULE_1__["default"])();
@@ -1192,7 +1233,6 @@ tabNav.init();
 (0,_modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_7__["default"])();
 (0,_modules_funcionamento__WEBPACK_IMPORTED_MODULE_4__["default"])();
 (0,_modules_tootip__WEBPACK_IMPORTED_MODULE_10__["default"])();
-(0,_modules_modal__WEBPACK_IMPORTED_MODULE_6__["default"])();
 })();
 
 /******/ })()
