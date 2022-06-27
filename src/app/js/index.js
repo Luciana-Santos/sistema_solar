@@ -4,7 +4,7 @@ import initDropdownMenu from './modules/dropdownMenu';
 import initFetchNumeros from './modules/fetchNumeros';
 import initFuncionamento from './modules/funcionamento';
 import initMenuMobile from './modules/menuMobile';
-import initModal from './modules/modal';
+import Modal from './modules/modal';
 import initScrollAnimation from './modules/scrollAnimation';
 import ScrollSuave from './modules/scrollSuave';
 import TabNav from './modules/tabNav';
@@ -22,6 +22,13 @@ const tabNav = new TabNav(
 );
 tabNav.init();
 
+const modal = new Modal(
+  '[data-modal="abrir"]',
+  '[data-menu="fechar"]',
+  '[data-modal="container"]',
+);
+modal.init();
+
 initDropdownMenu();
 initMenuMobile();
 initAnimaNumeros();
@@ -29,4 +36,3 @@ initFetchNumeros();
 initScrollAnimation();
 initFuncionamento();
 initTooltip();
-initModal();
