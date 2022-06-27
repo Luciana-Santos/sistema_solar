@@ -873,28 +873,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ initTabNav)
 /* harmony export */ });
-function initTabNav() {
-  var planetas = document.querySelectorAll('[data-tab="menu"] li');
-  var planetasDesc = document.querySelectorAll('[data-tab="content"] section');
-  var ativo = 'ativo';
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 
-  function ativarTab(index) {
-    planetasDesc.forEach(function (section) {
-      section.classList.remove(ativo);
-    });
-    var direcao = planetasDesc[index].dataset.anime;
-    planetasDesc[index].classList.add('ativo', direcao);
-  }
 
-  if (planetas.length === planetasDesc.length) {
-    planetasDesc[0].classList.add(ativo);
-    planetas.forEach(function (menuItem, index) {
-      menuItem.addEventListener('click', function () {
-        return ativarTab(index);
+
+var initTabNav = /*#__PURE__*/function () {
+  function initTabNav(menu, content) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, initTabNav);
+
+    this.planetas = document.querySelectorAll(menu);
+    this.planetasDesc = document.querySelectorAll(content);
+    this.ativo = 'ativo';
+  } // ativa a tab de acordo com o index
+
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(initTabNav, [{
+    key: "ativarTab",
+    value: function ativarTab(index) {
+      var _this = this;
+
+      this.planetasDesc.forEach(function (section) {
+        section.classList.remove(_this.ativo);
       });
-    });
-  }
-}
+      var direcao = this.planetasDesc[index].dataset.anime;
+      this.planetasDesc[index].classList.add(this.ativo, direcao);
+    } // adiciona os eventos aos tabs
+
+  }, {
+    key: "addTabNavEvent",
+    value: function addTabNavEvent() {
+      var _this2 = this;
+
+      this.planetas.forEach(function (menuItem, index) {
+        menuItem.addEventListener('click', function () {
+          return _this2.ativarTab(index);
+        });
+      });
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      if (this.planetas.length && this.planetasDesc.length) {
+        // ativar primeiro item
+        this.ativarTab(0);
+        this.addTabNavEvent();
+      }
+    }
+  }]);
+
+  return initTabNav;
+}();
+
+
 
 /***/ }),
 
@@ -1152,9 +1183,10 @@ var scrollSuave = new _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_8__["default
 scrollSuave.init();
 var accordion = new _modules_accordion__WEBPACK_IMPORTED_MODULE_0__["default"]('[data-anime="accordion"] dt');
 accordion.init();
+var tabNav = new _modules_tabNav__WEBPACK_IMPORTED_MODULE_9__["default"]('[data-tab="menu"] li', '[data-tab="content"] section');
+tabNav.init();
 (0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__["default"])();
-(0,_modules_tabNav__WEBPACK_IMPORTED_MODULE_9__["default"])();
 (0,_modules_animaNumeros__WEBPACK_IMPORTED_MODULE_1__["default"])();
 (0,_modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_3__["default"])();
 (0,_modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_7__["default"])();
