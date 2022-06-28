@@ -608,7 +608,7 @@ function initDropdownMenu() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initFetchNumeros)
+/* harmony export */   "default": () => (/* binding */ fetchNumeros)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
@@ -617,21 +617,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function initFetchNumeros() {
-  function createData(num) {
+function fetchNumeros(url, target) {
+  // cria a div contendendo as informações
+  function criarDiv(num) {
     var div = document.createElement('div');
     div.classList.add('numero-data');
     div.innerHTML = "<h2>".concat(num.label, "<span data-numero>").concat(num.total, "</span></h2>");
     return div;
+  } // preeche cada numero no dom
+
+
+  var wrapper = document.querySelector(target);
+
+  function preencherNumeros(numero) {
+    var divNumero = criarDiv(numero);
+    wrapper.appendChild(divNumero);
+  } // anima os numeros de cada dado
+
+
+  function animaDataNumeros() {
+    var animaNumeros = new _animaNumeros__WEBPACK_IMPORTED_MODULE_2__["default"]('[data-numero]', '.numeros', 'ativo');
+    animaNumeros.init();
+  } // faz o fetch dos animais atravez de um arquivo json
+
+
+  function criarDados() {
+    return _criarDados.apply(this, arguments);
   }
 
-  function fetchNumeros(_x) {
-    return _fetchNumeros.apply(this, arguments);
-  }
-
-  function _fetchNumeros() {
-    _fetchNumeros = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee(url) {
-      var numResponse, numJson, wrapper, animaNumeros;
+  function _criarDados() {
+    _criarDados = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+      var numResponse, numJson;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -647,32 +663,31 @@ function initFetchNumeros() {
 
             case 6:
               numJson = _context.sent;
-              wrapper = document.querySelector('.numeros__wrapper');
-              numJson.forEach(function (num) {
-                var divNumero = createData(num);
-                wrapper.appendChild(divNumero);
+              // após transformar em json, ativa as funções
+              // para preecher e animar os dados
+              numJson.forEach(function (numero) {
+                return preencherNumeros(numero);
               });
-              animaNumeros = new _animaNumeros__WEBPACK_IMPORTED_MODULE_2__["default"]('[data-numero]', '.numeros', 'ativo');
-              animaNumeros.init();
-              _context.next = 16;
+              animaDataNumeros();
+              _context.next = 14;
               break;
 
-            case 13:
-              _context.prev = 13;
+            case 11:
+              _context.prev = 11;
               _context.t0 = _context["catch"](0);
               console.log(_context.t0);
 
-            case 16:
+            case 14:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[0, 13]]);
+      }, _callee, null, [[0, 11]]);
     }));
-    return _fetchNumeros.apply(this, arguments);
+    return _criarDados.apply(this, arguments);
   }
 
-  fetchNumeros('./dados.json');
+  return criarDados();
 }
 
 /***/ }),
@@ -1327,9 +1342,9 @@ var tooltip = new _modules_tooltip__WEBPACK_IMPORTED_MODULE_9__["default"]('[dat
 tooltip.init();
 (0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_1__["default"])();
 (0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_4__["default"])();
-(0,_modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_6__["default"])();
 (0,_modules_funcionamento__WEBPACK_IMPORTED_MODULE_3__["default"])();
+(0,_modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_2__["default"])('./dados.json', '.numeros__wrapper');
 })();
 
 /******/ })()

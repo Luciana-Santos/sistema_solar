@@ -1,6 +1,6 @@
 import Accordion from './modules/accordion';
 import initDropdownMenu from './modules/dropdownMenu';
-import initFetchNumeros from './modules/fetchNumeros';
+import fetchNumeros from './modules/fetchNumeros';
 import initFuncionamento from './modules/funcionamento';
 import initMenuMobile from './modules/menuMobile';
 import Modal from './modules/modal';
@@ -33,6 +33,7 @@ tooltip.init();
 
 initDropdownMenu();
 initMenuMobile();
-initFetchNumeros();
 initScrollAnimation();
 initFuncionamento();
+
+fetchNumeros('./dados.json', '.numeros__wrapper');
