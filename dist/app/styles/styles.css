@@ -167,7 +167,7 @@ body {
   font-family: var(--ff-ibm);
   text-transform: uppercase;
   transition: var(--transition-3s);
-  letter-spacing: 0.08125rem;
+  letter-spacing: 0.0625rem;
   font-weight: bold;
   padding-inline: 1.25rem;
   padding-block: 0.625rem;
