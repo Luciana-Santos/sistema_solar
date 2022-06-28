@@ -27,14 +27,14 @@ const modal = new Modal(
   '[data-modal="fechar"]',
   '[data-modal="container"]',
 );
-modal.init(initImagemDia());
+modal.init();
 
 const imagemDia = new Modal(
   '[data-imagem="abrir"]',
   '[data-imagem="fechar"]',
   '[data-imagem="container"]',
 );
-imagemDia.init();
+imagemDia.init(initImagemDia());
 
 const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
