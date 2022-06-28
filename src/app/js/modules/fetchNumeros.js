@@ -1,4 +1,4 @@
-import initAnimaNumeros from './animaNumeros';
+import AnimaNumeros from './animaNumeros';
 
 export default function initFetchNumeros() {
   function createData(num) {
@@ -17,7 +17,12 @@ export default function initFetchNumeros() {
         const divNumero = createData(num);
         wrapper.appendChild(divNumero);
       });
-      initAnimaNumeros();
+      const animaNumeros = new AnimaNumeros(
+        '[data-numero]',
+        '.numeros',
+        'ativo',
+      );
+      animaNumeros.init();
     } catch (error) {
       console.log(error);
     }

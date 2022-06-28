@@ -1,5 +1,4 @@
 import Accordion from './modules/accordion';
-import initAnimaNumeros from './modules/animaNumeros';
 import initDropdownMenu from './modules/dropdownMenu';
 import initFetchNumeros from './modules/fetchNumeros';
 import initFuncionamento from './modules/funcionamento';
@@ -34,7 +33,6 @@ tooltip.init();
 
 initDropdownMenu();
 initMenuMobile();
-initAnimaNumeros();
 initFetchNumeros();
 initScrollAnimation();
 initFuncionamento();
