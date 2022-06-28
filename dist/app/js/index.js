@@ -726,14 +726,14 @@ function initFuncionamento() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initImagemDia)
+/* harmony export */   "default": () => (/* binding */ fetchImagemDia)
 /* harmony export */ });
-function initImagemDia() {
-  var imagem = document.querySelector('[data-imagem="img"]');
+function fetchImagemDia(url, target) {
+  var imagem = document.querySelector(target);
   var imgF0F = '/dist/assets/img/404.jpg';
 
   if (imagem) {
-    fetch('https://api.nasa.gov/planetary/apod?api_key=uzJcucGC2ANpgzcKtUPE7eRXBvbxUPan52hQm7sx').then(function (res) {
+    fetch(url).then(function (res) {
       return res.json();
     }).then(function (img) {
       imagem.src = img.url;
@@ -1370,7 +1370,7 @@ tabNav.init();
 var modal = new _modules_modal__WEBPACK_IMPORTED_MODULE_6__["default"]('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]');
 modal.init();
 var imagemDia = new _modules_modal__WEBPACK_IMPORTED_MODULE_6__["default"]('[data-imagem="abrir"]', '[data-imagem="fechar"]', '[data-imagem="container"]');
-imagemDia.init((0,_modules_imagemDia__WEBPACK_IMPORTED_MODULE_4__["default"])());
+imagemDia.init((0,_modules_imagemDia__WEBPACK_IMPORTED_MODULE_4__["default"])('https://api.nasa.gov/planetary/apod?api_key=uzJcucGC2ANpgzcKtUPE7eRXBvbxUPan52hQm7sx', '[data-imagem="img"]'));
 var tooltip = new _modules_tooltip__WEBPACK_IMPORTED_MODULE_10__["default"]('[data-tooltip]');
 tooltip.init();
 (0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_1__["default"])();

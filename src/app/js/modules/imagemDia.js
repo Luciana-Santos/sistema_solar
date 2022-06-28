@@ -1,10 +1,8 @@
-export default function initImagemDia() {
-  const imagem = document.querySelector('[data-imagem="img"]');
+export default function fetchImagemDia(url, target) {
+  const imagem = document.querySelector(target);
   const imgF0F = '/dist/assets/img/404.jpg';
   if (imagem) {
-    fetch(
-      'https://api.nasa.gov/planetary/apod?api_key=uzJcucGC2ANpgzcKtUPE7eRXBvbxUPan52hQm7sx',
-    )
+    fetch(url)
       .then((res) => res.json())
       .then((img) => {
         imagem.src = img.url;
