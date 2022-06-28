@@ -897,39 +897,60 @@ function outsideClick(element, events, callback) {
 
 /***/ }),
 
-/***/ "./src/app/js/modules/scrollAnimation.js":
-/*!***********************************************!*\
-  !*** ./src/app/js/modules/scrollAnimation.js ***!
-  \***********************************************/
+/***/ "./src/app/js/modules/scrollAnima.js":
+/*!*******************************************!*\
+  !*** ./src/app/js/modules/scrollAnima.js ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initScrollAnimation)
+/* harmony export */   "default": () => (/* binding */ ScrollAnima)
 /* harmony export */ });
-function initScrollAnimation() {
-  var sections = document.querySelectorAll('[data-anime="scroll"]');
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 
-  function animaScroll() {
-    var windowMetade = window.innerHeight * 0.6;
-    sections.forEach(function (section) {
-      var sectionTop = section.getBoundingClientRect().top;
-      var isSectionVisible = sectionTop - windowMetade < 0;
 
-      if (isSectionVisible) {
-        section.classList.add('ativo');
-      } else if (section.classList.contains('ativo')) {
-        section.classList.remove('ativo');
-      }
-    });
+
+var ScrollAnima = /*#__PURE__*/function () {
+  function ScrollAnima(sections) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, ScrollAnima);
+
+    this.sections = document.querySelectorAll(sections);
+    this.windowMetade = window.innerHeight * 0.6;
+    this.animaScroll = this.animaScroll.bind(this);
   }
 
-  if (sections.length) {
-    animaScroll();
-    window.addEventListener('scroll', animaScroll);
-  }
-}
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(ScrollAnima, [{
+    key: "animaScroll",
+    value: function animaScroll() {
+      var _this = this;
+
+      this.sections.forEach(function (section) {
+        var sectionTop = section.getBoundingClientRect().top;
+        var isSectionVisible = sectionTop - _this.windowMetade < 0;
+
+        if (isSectionVisible) {
+          section.classList.add('ativo');
+        } else if (section.classList.contains('ativo')) {
+          section.classList.remove('ativo');
+        }
+      });
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      this.animaScroll();
+      window.addEventListener('scroll', this.animaScroll);
+      return this;
+    }
+  }]);
+
+  return ScrollAnima;
+}();
+
+
 
 /***/ }),
 
@@ -1346,7 +1367,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_imagemDia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/imagemDia */ "./src/app/js/modules/imagemDia.js");
 /* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/modal */ "./src/app/js/modules/modal.js");
-/* harmony import */ var _modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/scrollAnimation */ "./src/app/js/modules/scrollAnimation.js");
+/* harmony import */ var _modules_scrollAnima__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/scrollAnima */ "./src/app/js/modules/scrollAnima.js");
 /* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
 /* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
 /* harmony import */ var _modules_tooltip__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/tooltip */ "./src/app/js/modules/tooltip.js");
@@ -1373,9 +1394,10 @@ var imagemDia = new _modules_modal__WEBPACK_IMPORTED_MODULE_6__["default"]('[dat
 imagemDia.init((0,_modules_imagemDia__WEBPACK_IMPORTED_MODULE_4__["default"])('https://api.nasa.gov/planetary/apod?api_key=uzJcucGC2ANpgzcKtUPE7eRXBvbxUPan52hQm7sx', '[data-imagem="img"]'));
 var tooltip = new _modules_tooltip__WEBPACK_IMPORTED_MODULE_10__["default"]('[data-tooltip]');
 tooltip.init();
+var scrollAnima = new _modules_scrollAnima__WEBPACK_IMPORTED_MODULE_7__["default"]('[data-anime="scroll"]');
+scrollAnima.init();
 (0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_1__["default"])();
 (0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__["default"])();
-(0,_modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_7__["default"])();
 (0,_modules_funcionamento__WEBPACK_IMPORTED_MODULE_3__["default"])();
 (0,_modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_2__["default"])('./dados.json', '.numeros__wrapper');
 })();

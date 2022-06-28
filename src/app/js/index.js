@@ -5,7 +5,7 @@ import initFuncionamento from './modules/funcionamento';
 import fetchImagemDia from './modules/imagemDia';
 import initMenuMobile from './modules/menuMobile';
 import Modal from './modules/modal';
-import initScrollAnimation from './modules/scrollAnimation';
+import ScrollAnima from './modules/scrollAnima';
 import ScrollSuave from './modules/scrollSuave';
 import TabNav from './modules/tabNav';
 import Tooltip from './modules/tooltip';
@@ -44,9 +44,11 @@ imagemDia.init(
 const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
 
+const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
+scrollAnima.init();
+
 initDropdownMenu();
 initMenuMobile();
-initScrollAnimation();
 initFuncionamento();
 
 fetchNumeros('./dados.json', '.numeros__wrapper');
