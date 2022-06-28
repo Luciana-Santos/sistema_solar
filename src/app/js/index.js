@@ -2,6 +2,7 @@ import Accordion from './modules/accordion';
 import initDropdownMenu from './modules/dropdownMenu';
 import fetchNumeros from './modules/fetchNumeros';
 import initFuncionamento from './modules/funcionamento';
+import initImagemDia from './modules/imagemDia';
 import initMenuMobile from './modules/menuMobile';
 import Modal from './modules/modal';
 import initScrollAnimation from './modules/scrollAnimation';
@@ -26,7 +27,14 @@ const modal = new Modal(
   '[data-modal="fechar"]',
   '[data-modal="container"]',
 );
-modal.init();
+modal.init(initImagemDia());
+
+const imagemDia = new Modal(
+  '[data-imagem="abrir"]',
+  '[data-imagem="fechar"]',
+  '[data-imagem="container"]',
+);
+imagemDia.init();
 
 const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
