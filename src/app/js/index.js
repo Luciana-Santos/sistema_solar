@@ -8,7 +8,7 @@ import Modal from './modules/modal';
 import initScrollAnimation from './modules/scrollAnimation';
 import ScrollSuave from './modules/scrollSuave';
 import TabNav from './modules/tabNav';
-import initTooltip from './modules/tootip';
+import Tooltip from './modules/tooltip';
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -29,10 +29,12 @@ const modal = new Modal(
 );
 modal.init();
 
+const tooltip = new Tooltip('[data-tooltip]');
+tooltip.init();
+
 initDropdownMenu();
 initMenuMobile();
 initAnimaNumeros();
 initFetchNumeros();
 initScrollAnimation();
 initFuncionamento();
-initTooltip();
