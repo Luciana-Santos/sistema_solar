@@ -2,7 +2,7 @@ import Accordion from './modules/accordion';
 import initDropdownMenu from './modules/dropdownMenu';
 import fetchNumeros from './modules/fetchNumeros';
 import initFuncionamento from './modules/funcionamento';
-import initImagemDia from './modules/imagemDia';
+import fetchImagemDia from './modules/imagemDia';
 import initMenuMobile from './modules/menuMobile';
 import Modal from './modules/modal';
 import initScrollAnimation from './modules/scrollAnimation';
@@ -34,7 +34,12 @@ const imagemDia = new Modal(
   '[data-imagem="fechar"]',
   '[data-imagem="container"]',
 );
-imagemDia.init(initImagemDia());
+imagemDia.init(
+  fetchImagemDia(
+    'https://api.nasa.gov/planetary/apod?api_key=uzJcucGC2ANpgzcKtUPE7eRXBvbxUPan52hQm7sx',
+    '[data-imagem="img"]',
+  ),
+);
 
 const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
