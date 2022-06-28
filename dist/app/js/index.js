@@ -481,12 +481,68 @@ var Accordion = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initAnimaNumeros)
+/* harmony export */   "default": () => (/* binding */ AnimaNumeros)
 /* harmony export */ });
-function initAnimaNumeros() {
-  function animaNumeros() {
-    var numeros = document.querySelectorAll('[data-numero]');
-    numeros.forEach(function (numero) {
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+
+
+
+var AnimaNumeros = /*#__PURE__*/function () {
+  function AnimaNumeros(numeros, observerTarget, observerClass) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, AnimaNumeros);
+
+    this.numeros = document.querySelectorAll(numeros);
+    this.observerTarget = document.querySelector(observerTarget);
+    this.observerClass = observerClass; // bind o this do callback ao this da mutação
+
+    this.handleMutation = this.handleMutation.bind(this);
+  } // recebe um elemento do dom com um numero em seu texto
+  // incrementa a partir de zero até o numero final
+
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(AnimaNumeros, [{
+    key: "animaNumeros",
+    value: // ativa incrementarNumero para cada numero selecionado do dom
+    function animaNumeros() {
+      var _this = this;
+
+      this.numeros.forEach(function (numero) {
+        _this.constructor.incrementarNumero(numero);
+      });
+    } // função que acontence quando a mutação ocorre
+
+  }, {
+    key: "handleMutation",
+    value: function handleMutation(mutation) {
+      if (mutation[0].target.classList.contains(this.observerClass)) {
+        this.observer.disconnect();
+        this.animaNumeros();
+      }
+    } // adiciona o MutationObserver para vefirificar
+    // quando a classe 'ativo' é adicionada
+    // ao elemento target
+
+  }, {
+    key: "addMutationObserver",
+    value: function addMutationObserver() {
+      this.observer = new MutationObserver(this.handleMutation);
+      this.observer.observe(this.observerTarget, {
+        attributes: true
+      });
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      if (this.numeros.length && this.observerTarget) {
+        this.addMutationObserver();
+      }
+
+      return this;
+    }
+  }], [{
+    key: "incrementarNumero",
+    value: function incrementarNumero(numero) {
       var total = +numero.innerText;
       var incremento = Math.floor(total / 120);
       var start = 0;
@@ -499,22 +555,13 @@ function initAnimaNumeros() {
           clearInterval(timer);
         }
       }, 25 * Math.random());
-    });
-  }
-
-  function handleMutation(mutation) {
-    if (mutation[0].target.classList.contains('ativo')) {
-      observer.disconnect();
-      animaNumeros();
     }
-  }
+  }]);
 
-  var observerTarget = document.querySelector('.numeros');
-  var observer = new MutationObserver(handleMutation);
-  observer.observe(observerTarget, {
-    attributes: true
-  });
-}
+  return AnimaNumeros;
+}();
+
+
 
 /***/ }),
 
@@ -584,7 +631,7 @@ function initFetchNumeros() {
 
   function _fetchNumeros() {
     _fetchNumeros = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee(url) {
-      var numResponse, numJson, wrapper;
+      var numResponse, numJson, wrapper, animaNumeros;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -605,21 +652,22 @@ function initFetchNumeros() {
                 var divNumero = createData(num);
                 wrapper.appendChild(divNumero);
               });
-              (0,_animaNumeros__WEBPACK_IMPORTED_MODULE_2__["default"])();
-              _context.next = 15;
+              animaNumeros = new _animaNumeros__WEBPACK_IMPORTED_MODULE_2__["default"]('[data-numero]', '.numeros', 'ativo');
+              animaNumeros.init();
+              _context.next = 16;
               break;
 
-            case 12:
-              _context.prev = 12;
+            case 13:
+              _context.prev = 13;
               _context.t0 = _context["catch"](0);
               console.log(_context.t0);
 
-            case 15:
+            case 16:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[0, 12]]);
+      }, _callee, null, [[0, 13]]);
     }));
     return _fetchNumeros.apply(this, arguments);
   }
@@ -1248,16 +1296,15 @@ var __webpack_exports__ = {};
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/accordion */ "./src/app/js/modules/accordion.js");
-/* harmony import */ var _modules_animaNumeros__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/animaNumeros */ "./src/app/js/modules/animaNumeros.js");
-/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./src/app/js/modules/dropdownMenu.js");
-/* harmony import */ var _modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/fetchNumeros */ "./src/app/js/modules/fetchNumeros.js");
-/* harmony import */ var _modules_funcionamento__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/funcionamento */ "./src/app/js/modules/funcionamento.js");
-/* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
-/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/modal */ "./src/app/js/modules/modal.js");
-/* harmony import */ var _modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/scrollAnimation */ "./src/app/js/modules/scrollAnimation.js");
-/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
-/* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
-/* harmony import */ var _modules_tooltip__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/tooltip */ "./src/app/js/modules/tooltip.js");
+/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./src/app/js/modules/dropdownMenu.js");
+/* harmony import */ var _modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/fetchNumeros */ "./src/app/js/modules/fetchNumeros.js");
+/* harmony import */ var _modules_funcionamento__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/funcionamento */ "./src/app/js/modules/funcionamento.js");
+/* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
+/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/modal */ "./src/app/js/modules/modal.js");
+/* harmony import */ var _modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scrollAnimation */ "./src/app/js/modules/scrollAnimation.js");
+/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
+/* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
+/* harmony import */ var _modules_tooltip__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/tooltip */ "./src/app/js/modules/tooltip.js");
 
 
 
@@ -1268,23 +1315,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-var scrollSuave = new _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_8__["default"]('[data-menu="suave"] a[href^="#"]');
+var scrollSuave = new _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_7__["default"]('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
 var accordion = new _modules_accordion__WEBPACK_IMPORTED_MODULE_0__["default"]('[data-anime="accordion"] dt');
 accordion.init();
-var tabNav = new _modules_tabNav__WEBPACK_IMPORTED_MODULE_9__["default"]('[data-tab="menu"] li', '[data-tab="content"] section');
+var tabNav = new _modules_tabNav__WEBPACK_IMPORTED_MODULE_8__["default"]('[data-tab="menu"] li', '[data-tab="content"] section');
 tabNav.init();
-var modal = new _modules_modal__WEBPACK_IMPORTED_MODULE_6__["default"]('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]');
+var modal = new _modules_modal__WEBPACK_IMPORTED_MODULE_5__["default"]('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]');
 modal.init();
-var tooltip = new _modules_tooltip__WEBPACK_IMPORTED_MODULE_10__["default"]('[data-tooltip]');
+var tooltip = new _modules_tooltip__WEBPACK_IMPORTED_MODULE_9__["default"]('[data-tooltip]');
 tooltip.init();
-(0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_2__["default"])();
-(0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__["default"])();
-(0,_modules_animaNumeros__WEBPACK_IMPORTED_MODULE_1__["default"])();
-(0,_modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_3__["default"])();
-(0,_modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_7__["default"])();
-(0,_modules_funcionamento__WEBPACK_IMPORTED_MODULE_4__["default"])();
+(0,_modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_1__["default"])();
+(0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_4__["default"])();
+(0,_modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_2__["default"])();
+(0,_modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_6__["default"])();
+(0,_modules_funcionamento__WEBPACK_IMPORTED_MODULE_3__["default"])();
 })();
 
 /******/ })()
