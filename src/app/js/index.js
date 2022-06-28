@@ -1,5 +1,4 @@
 import Accordion from './modules/accordion';
-import initDropdownMenu from './modules/dropdownMenu';
 import fetchNumeros from './modules/fetchNumeros';
 import initFuncionamento from './modules/funcionamento';
 import fetchImagemDia from './modules/imagemDia';
@@ -9,6 +8,7 @@ import ScrollAnima from './modules/scrollAnima';
 import ScrollSuave from './modules/scrollSuave';
 import TabNav from './modules/tabNav';
 import Tooltip from './modules/tooltip';
+import DropdownMenu from './modules/dropdownMenu';
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -47,7 +47,9 @@ tooltip.init();
 const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
 scrollAnima.init();
 
-initDropdownMenu();
+const dropdownMenu = new DropdownMenu('[data-dropdown]');
+dropdownMenu.init();
+
 initMenuMobile();
 initFuncionamento();
 
