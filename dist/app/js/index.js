@@ -823,31 +823,65 @@ function fetchImagemDia(url, target) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initMenuMobile)
+/* harmony export */   "default": () => (/* binding */ MenuMobile)
 /* harmony export */ });
-/* harmony import */ var _outsideClick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./outsideClick */ "./src/app/js/modules/outsideClick.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _outsideClick__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./outsideClick */ "./src/app/js/modules/outsideClick.js");
 
-function initMenuMobile() {
-  var menuBtn = document.querySelector('[data-menu="btn"]');
-  var menuList = document.querySelector('[data-menu="list"]');
-  var events = ['click', 'touchstart'];
-  var active = 'ativo';
 
-  function openMenu() {
-    menuList.classList.add(active);
-    menuBtn.classList.add(active);
-    (0,_outsideClick__WEBPACK_IMPORTED_MODULE_0__["default"])(menuList, events, function () {
-      menuList.classList.remove(active);
-      menuBtn.classList.remove(active);
-    });
+
+
+var MenuMobile = /*#__PURE__*/function () {
+  function MenuMobile(menuBtn, menuList, events) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, MenuMobile);
+
+    this.menuBtn = document.querySelector('[data-menu="btn"]');
+    this.menuList = document.querySelector('[data-menu="list"]');
+    this.activeClass = 'ativo'; // define touchstart e clique como argumento padrão
+    // de events caso não seja definido na função
+
+    if (events === undefined) this.events = ['touchstart', 'click'];else this.events = events;
+    this.openMenu = this.openMenu.bind(this);
   }
 
-  if (menuBtn) {
-    events.forEach(function (userEvent) {
-      menuBtn.addEventListener(userEvent, openMenu);
-    });
-  }
-}
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(MenuMobile, [{
+    key: "openMenu",
+    value: function openMenu() {
+      var _this = this;
+
+      this.menuList.classList.add(this.activeClass);
+      this.menuBtn.classList.add(this.activeClass);
+      (0,_outsideClick__WEBPACK_IMPORTED_MODULE_2__["default"])(this.menuList, this.events, function () {
+        _this.menuList.classList.remove(_this.activeClass);
+
+        _this.menuBtn.classList.remove(_this.activeClass);
+      });
+    }
+  }, {
+    key: "addMenuMobileEvents",
+    value: function addMenuMobileEvents() {
+      var _this2 = this;
+
+      this.events.forEach(function (userEvent) {
+        _this2.menuBtn.addEventListener(userEvent, _this2.openMenu);
+      });
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      if (this.menuBtn && this.menuList) {
+        this.addMenuMobileEvents();
+      }
+
+      return this;
+    }
+  }]);
+
+  return MenuMobile;
+}();
+
+
 
 /***/ }),
 
@@ -1583,13 +1617,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/fetchNumeros */ "./src/app/js/modules/fetchNumeros.js");
 /* harmony import */ var _modules_funcionamento__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/funcionamento */ "./src/app/js/modules/funcionamento.js");
 /* harmony import */ var _modules_imagemDia__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/imagemDia */ "./src/app/js/modules/imagemDia.js");
-/* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
-/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/modal */ "./src/app/js/modules/modal.js");
-/* harmony import */ var _modules_scrollAnima__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scrollAnima */ "./src/app/js/modules/scrollAnima.js");
-/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
-/* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
-/* harmony import */ var _modules_tooltip__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/tooltip */ "./src/app/js/modules/tooltip.js");
-/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./src/app/js/modules/dropdownMenu.js");
+/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/modal */ "./src/app/js/modules/modal.js");
+/* harmony import */ var _modules_scrollAnima__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/scrollAnima */ "./src/app/js/modules/scrollAnima.js");
+/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
+/* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
+/* harmony import */ var _modules_tooltip__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/tooltip */ "./src/app/js/modules/tooltip.js");
+/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./src/app/js/modules/dropdownMenu.js");
+/* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
 
 
 
@@ -1601,23 +1635,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var scrollSuave = new _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_7__["default"]('[data-menu="suave"] a[href^="#"]');
+var scrollSuave = new _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_6__["default"]('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
 var accordion = new _modules_accordion__WEBPACK_IMPORTED_MODULE_0__["default"]('[data-anime="accordion"] dt');
 accordion.init();
-var tabNav = new _modules_tabNav__WEBPACK_IMPORTED_MODULE_8__["default"]('[data-tab="menu"] li', '[data-tab="content"] section');
+var tabNav = new _modules_tabNav__WEBPACK_IMPORTED_MODULE_7__["default"]('[data-tab="menu"] li', '[data-tab="content"] section');
 tabNav.init();
-var modal = new _modules_modal__WEBPACK_IMPORTED_MODULE_5__["default"]('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]');
+var modal = new _modules_modal__WEBPACK_IMPORTED_MODULE_4__["default"]('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]');
 modal.init();
-var imagemDia = new _modules_modal__WEBPACK_IMPORTED_MODULE_5__["default"]('[data-imagem="abrir"]', '[data-imagem="fechar"]', '[data-imagem="container"]');
+var imagemDia = new _modules_modal__WEBPACK_IMPORTED_MODULE_4__["default"]('[data-imagem="abrir"]', '[data-imagem="fechar"]', '[data-imagem="container"]');
 imagemDia.init((0,_modules_imagemDia__WEBPACK_IMPORTED_MODULE_3__["default"])('https://api.nasa.gov/planetary/apod?api_key=uzJcucGC2ANpgzcKtUPE7eRXBvbxUPan52hQm7sx', '[data-imagem="img"]'));
-var tooltip = new _modules_tooltip__WEBPACK_IMPORTED_MODULE_9__["default"]('[data-tooltip]');
+var tooltip = new _modules_tooltip__WEBPACK_IMPORTED_MODULE_8__["default"]('[data-tooltip]');
 tooltip.init();
-var scrollAnima = new _modules_scrollAnima__WEBPACK_IMPORTED_MODULE_6__["default"]('[data-anime="scroll"]');
+var scrollAnima = new _modules_scrollAnima__WEBPACK_IMPORTED_MODULE_5__["default"]('[data-anime="scroll"]');
 scrollAnima.init();
-var dropdownMenu = new _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_10__["default"]('[data-dropdown]');
+var dropdownMenu = new _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_9__["default"]('[data-dropdown]');
 dropdownMenu.init();
-(0,_modules_menuMobile__WEBPACK_IMPORTED_MODULE_4__["default"])();
+var menuMobile = new _modules_menuMobile__WEBPACK_IMPORTED_MODULE_10__["default"]('[data-menu="btn"]', '[data-menu="list"]');
+menuMobile.init();
 (0,_modules_funcionamento__WEBPACK_IMPORTED_MODULE_2__["default"])();
 (0,_modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_1__["default"])('./dados.json', '.numeros__wrapper');
 })();

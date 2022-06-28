@@ -2,13 +2,13 @@ import Accordion from './modules/accordion';
 import fetchNumeros from './modules/fetchNumeros';
 import initFuncionamento from './modules/funcionamento';
 import fetchImagemDia from './modules/imagemDia';
-import initMenuMobile from './modules/menuMobile';
 import Modal from './modules/modal';
 import ScrollAnima from './modules/scrollAnima';
 import ScrollSuave from './modules/scrollSuave';
 import TabNav from './modules/tabNav';
 import Tooltip from './modules/tooltip';
 import DropdownMenu from './modules/dropdownMenu';
+import MenuMobile from './modules/menuMobile';
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -50,7 +50,9 @@ scrollAnima.init();
 const dropdownMenu = new DropdownMenu('[data-dropdown]');
 dropdownMenu.init();
 
-initMenuMobile();
+const menuMobile = new MenuMobile('[data-menu="btn"]', '[data-menu="list"]');
+menuMobile.init();
+
 initFuncionamento();
 
 fetchNumeros('./dados.json', '.numeros__wrapper');
