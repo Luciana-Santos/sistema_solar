@@ -717,35 +717,6 @@ function initFuncionamento() {
 
 /***/ }),
 
-/***/ "./src/app/js/modules/imagemDia.js":
-/*!*****************************************!*\
-  !*** ./src/app/js/modules/imagemDia.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initImagemDia)
-/* harmony export */ });
-function initImagemDia() {
-  var imagem = document.querySelector('[data-imagem="img"]');
-  var imgF0F = '/dist/assets/img/404.jpg';
-
-  if (imagem) {
-    fetch('https://api.nasa.gov/planetary/apod?api_key=uzJcucGC2ANpgzcKtUPE7eRXBvbxUPan52hQm7sx').then(function (res) {
-      return res.json();
-    }).then(function (img) {
-      imagem.src = img.url;
-    })["catch"](function (error) {
-      imagem.src = imgF0F;
-      console.log(error);
-    });
-  }
-}
-
-/***/ }),
-
 /***/ "./src/app/js/modules/menuMobile.js":
 /*!******************************************!*\
   !*** ./src/app/js/modules/menuMobile.js ***!
@@ -1343,7 +1314,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./src/app/js/modules/dropdownMenu.js");
 /* harmony import */ var _modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/fetchNumeros */ "./src/app/js/modules/fetchNumeros.js");
 /* harmony import */ var _modules_funcionamento__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/funcionamento */ "./src/app/js/modules/funcionamento.js");
-/* harmony import */ var _modules_imagemDia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/imagemDia */ "./src/app/js/modules/imagemDia.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module './modules/imagemDia'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 /* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/modal */ "./src/app/js/modules/modal.js");
 /* harmony import */ var _modules_scrollAnimation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/scrollAnimation */ "./src/app/js/modules/scrollAnimation.js");
@@ -1368,7 +1339,7 @@ accordion.init();
 var tabNav = new _modules_tabNav__WEBPACK_IMPORTED_MODULE_9__["default"]('[data-tab="menu"] li', '[data-tab="content"] section');
 tabNav.init();
 var modal = new _modules_modal__WEBPACK_IMPORTED_MODULE_6__["default"]('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]');
-modal.init((0,_modules_imagemDia__WEBPACK_IMPORTED_MODULE_4__["default"])());
+modal.init(Object(function webpackMissingModule() { var e = new Error("Cannot find module './modules/imagemDia'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())());
 var imagemDia = new _modules_modal__WEBPACK_IMPORTED_MODULE_6__["default"]('[data-imagem="abrir"]', '[data-imagem="fechar"]', '[data-imagem="container"]');
 imagemDia.init();
 var tooltip = new _modules_tooltip__WEBPACK_IMPORTED_MODULE_10__["default"]('[data-tooltip]');
