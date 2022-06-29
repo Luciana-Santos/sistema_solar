@@ -769,19 +769,65 @@ function fetchNumeros(url, target) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ initFuncionamento)
+/* harmony export */   "default": () => (/* binding */ Funcionamento)
 /* harmony export */ });
-function initFuncionamento() {
-  var funcionamento = document.querySelector('[data-semana]');
-  var diasSemana = funcionamento.dataset.semana.split(',').map(Number);
-  var horarioSemana = funcionamento.dataset.horario.split(',').map(Number);
-  var dataAgora = new Date();
-  var diasAgora = dataAgora.getDay();
-  var horarioAgora = dataAgora.getHours();
-  var semanaAberto = diasSemana.indexOf(diasAgora) !== -1;
-  var horarioAberto = horarioAgora >= horarioSemana[0] && horarioAgora < horarioSemana[1];
-  if (semanaAberto && horarioAberto) funcionamento.classList.add('aberto');
-}
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+
+
+
+var Funcionamento = /*#__PURE__*/function () {
+  function Funcionamento(funcionamento, activeClass) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Funcionamento);
+
+    this.funcionamento = document.querySelector(funcionamento);
+    this.activeClass = activeClass;
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Funcionamento, [{
+    key: "dadosFuncionamento",
+    value: function dadosFuncionamento() {
+      this.diasSemana = this.funcionamento.dataset.semana.split(',').map(Number);
+      this.horarioSemana = this.funcionamento.dataset.horario.split(',').map(Number);
+    }
+  }, {
+    key: "dadosAgora",
+    value: function dadosAgora() {
+      this.dataAgora = new Date();
+      this.diaAgora = this.dataAgora.getDay();
+      this.horarioAgora = this.dataAgora.getUTCHours() - 3;
+    }
+  }, {
+    key: "estaAberto",
+    value: function estaAberto() {
+      var semanaAberto = this.diasSemana.indexOf(this.diaAgora) !== -1;
+      var horarioAberto = this.horarioAgora >= this.horarioSemana[0] && this.horarioAgora < this.horarioSemana[1];
+      return semanaAberto && horarioAberto;
+    }
+  }, {
+    key: "ativaAberto",
+    value: function ativaAberto() {
+      if (this.estaAberto()) {
+        this.funcionamento.classList.add(this.activeClass);
+      }
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      if (this.funcionamento) {
+        this.dadosFuncionamento();
+        this.dadosAgora();
+        this.ativaAberto();
+      }
+
+      return this;
+    }
+  }]);
+
+  return Funcionamento;
+}();
+
+
 
 /***/ }),
 
@@ -1615,15 +1661,15 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/accordion */ "./src/app/js/modules/accordion.js");
 /* harmony import */ var _modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/fetchNumeros */ "./src/app/js/modules/fetchNumeros.js");
-/* harmony import */ var _modules_funcionamento__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/funcionamento */ "./src/app/js/modules/funcionamento.js");
-/* harmony import */ var _modules_imagemDia__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/imagemDia */ "./src/app/js/modules/imagemDia.js");
-/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/modal */ "./src/app/js/modules/modal.js");
-/* harmony import */ var _modules_scrollAnima__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/scrollAnima */ "./src/app/js/modules/scrollAnima.js");
-/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
-/* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
-/* harmony import */ var _modules_tooltip__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/tooltip */ "./src/app/js/modules/tooltip.js");
-/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./src/app/js/modules/dropdownMenu.js");
-/* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
+/* harmony import */ var _modules_imagemDia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/imagemDia */ "./src/app/js/modules/imagemDia.js");
+/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modal */ "./src/app/js/modules/modal.js");
+/* harmony import */ var _modules_scrollAnima__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/scrollAnima */ "./src/app/js/modules/scrollAnima.js");
+/* harmony import */ var _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/scrollSuave */ "./src/app/js/modules/scrollSuave.js");
+/* harmony import */ var _modules_tabNav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/tabNav */ "./src/app/js/modules/tabNav.js");
+/* harmony import */ var _modules_tooltip__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/tooltip */ "./src/app/js/modules/tooltip.js");
+/* harmony import */ var _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/dropdownMenu */ "./src/app/js/modules/dropdownMenu.js");
+/* harmony import */ var _modules_menuMobile__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/menuMobile */ "./src/app/js/modules/menuMobile.js");
+/* harmony import */ var _modules_funcionamento__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/funcionamento */ "./src/app/js/modules/funcionamento.js");
 
 
 
@@ -1635,25 +1681,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var scrollSuave = new _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_6__["default"]('[data-menu="suave"] a[href^="#"]');
+var scrollSuave = new _modules_scrollSuave__WEBPACK_IMPORTED_MODULE_5__["default"]('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
 var accordion = new _modules_accordion__WEBPACK_IMPORTED_MODULE_0__["default"]('[data-anime="accordion"] dt');
 accordion.init();
-var tabNav = new _modules_tabNav__WEBPACK_IMPORTED_MODULE_7__["default"]('[data-tab="menu"] li', '[data-tab="content"] section');
+var tabNav = new _modules_tabNav__WEBPACK_IMPORTED_MODULE_6__["default"]('[data-tab="menu"] li', '[data-tab="content"] section');
 tabNav.init();
-var modal = new _modules_modal__WEBPACK_IMPORTED_MODULE_4__["default"]('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]');
+var modal = new _modules_modal__WEBPACK_IMPORTED_MODULE_3__["default"]('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"]');
 modal.init();
-var imagemDia = new _modules_modal__WEBPACK_IMPORTED_MODULE_4__["default"]('[data-imagem="abrir"]', '[data-imagem="fechar"]', '[data-imagem="container"]');
-imagemDia.init((0,_modules_imagemDia__WEBPACK_IMPORTED_MODULE_3__["default"])('https://api.nasa.gov/planetary/apod?api_key=uzJcucGC2ANpgzcKtUPE7eRXBvbxUPan52hQm7sx', '[data-imagem="img"]'));
-var tooltip = new _modules_tooltip__WEBPACK_IMPORTED_MODULE_8__["default"]('[data-tooltip]');
+var imagemDia = new _modules_modal__WEBPACK_IMPORTED_MODULE_3__["default"]('[data-imagem="abrir"]', '[data-imagem="fechar"]', '[data-imagem="container"]');
+imagemDia.init((0,_modules_imagemDia__WEBPACK_IMPORTED_MODULE_2__["default"])('https://api.nasa.gov/planetary/apod?api_key=uzJcucGC2ANpgzcKtUPE7eRXBvbxUPan52hQm7sx', '[data-imagem="img"]'));
+var tooltip = new _modules_tooltip__WEBPACK_IMPORTED_MODULE_7__["default"]('[data-tooltip]');
 tooltip.init();
-var scrollAnima = new _modules_scrollAnima__WEBPACK_IMPORTED_MODULE_5__["default"]('[data-anime="scroll"]');
+var scrollAnima = new _modules_scrollAnima__WEBPACK_IMPORTED_MODULE_4__["default"]('[data-anime="scroll"]');
 scrollAnima.init();
-var dropdownMenu = new _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_9__["default"]('[data-dropdown]');
+var dropdownMenu = new _modules_dropdownMenu__WEBPACK_IMPORTED_MODULE_8__["default"]('[data-dropdown]');
 dropdownMenu.init();
-var menuMobile = new _modules_menuMobile__WEBPACK_IMPORTED_MODULE_10__["default"]('[data-menu="btn"]', '[data-menu="list"]');
+var menuMobile = new _modules_menuMobile__WEBPACK_IMPORTED_MODULE_9__["default"]('[data-menu="btn"]', '[data-menu="list"]');
 menuMobile.init();
-(0,_modules_funcionamento__WEBPACK_IMPORTED_MODULE_2__["default"])();
+var funcionamento = new _modules_funcionamento__WEBPACK_IMPORTED_MODULE_10__["default"]('[data-semana]', 'aberto');
+funcionamento.init();
 (0,_modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_1__["default"])('./dados.json', '.numeros__wrapper');
 })();
 
