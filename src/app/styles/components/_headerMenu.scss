@@ -1,0 +1,129 @@
+@use '../utils' as *;
+
+.header {
+  background-color: var(--cl-vdark-blue);
+  padding-block: rem(15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint(medium) {
+      align-items: center;
+    }
+  }
+
+  &__menu {
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: var(--cl-vdark-blue);
+    padding-block: rem(50) rem(20);
+    box-shadow: -2px 2px 2px 0 rgba(90, 221, 210, 0.1);
+
+    a {
+      display: inline-block;
+      color: var(--cl-body);
+      font-family: var(--ff-ibm);
+      text-transform: uppercase;
+      transition: var(--transition-3s);
+      letter-spacing: rem(1);
+      font-weight: bold;
+      padding-inline: rem(20);
+      padding-block: rem(10);
+
+      &:hover {
+        color: var(--cl-accent);
+      }
+
+      @include breakpoint(medium) {
+        padding-inline: 0;
+      }
+    }
+
+    &.ativo {
+      display: block;
+      animation: show-right .3s forwards;
+    }
+
+    @include breakpoint(medium) {
+      position: relative;
+      display: flex;
+      box-shadow: none;
+      padding-block: 0;
+
+      li {
+        margin-left: rem(30);
+      }
+    }
+  }
+
+  [data-menu="btn"] {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    align-self: center;
+
+    .btn-menu {
+      background: var(--cl-accent);
+      width: 30px;
+      height: 4px;
+      border-radius: 5px;
+      z-index: 100;
+      transition: all .3s ease-in-out;
+      display: grid;
+      align-items: center;
+
+  
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 4px;
+        background: var(--cl-accent);
+        border-radius: 5px;
+        transition: all .3s ease-in-out;
+      }
+  
+      &::before {
+        transform: translateY(-10px);
+      }
+  
+      &::after {
+        transform: translateY(10px);
+      }
+  
+    }
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+
+  @include breakpoint(medium) {
+    box-shadow: -2px 2px 2px 0 rgba(90, 221, 210, 0.04);
+  }
+}
+
+[data-menu="btn"].ativo {
+
+  .btn-menu {
+    transform: translateX(1rem);
+    background-color: transparent;
+  }
+
+  .btn-menu::before {
+    transform: rotate(45deg) translate(-10px, 10px);
+  }
+
+  .btn-menu::after {
+    transform: rotate(-45deg) translate(-10px, -10px);
+  }
+}
