@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Solar</title>
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Playfair+Display+SC&display=swap" rel="stylesheet">
+
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="app/styles/styles.css">
+</head>
+
+<body>
+  <header class="header">
+    <nav class="container header__nav" data-menu="suave">
+      <div class="logo ">
+        <a href="index.html"><i class="fa-solid fa-star-and-crescent"></i></a>
+      </div>
+
+      <ul data-menu="list" class="header__menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="imagemDia.html" data-imagem="abrir">Imagem do Dia</a></li>
+        <li data-dropdown><a href="#">Sobre</a>
+          <ul class="menu-dropdown">
+            <li><a href="#curiosidades">Curiosidades</a></li>
+            <li><a href="#numeros">Números</a></li>
+            <li><a href="#">Lorem</a></li>
+            <li><a href="#">Missão e Valores</a></li>
+          </ul>
+        </li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="login.html" data-modal="abrir">Login ▸</a></li>
+      </ul>
+
+      <div data-menu="btn">
+        <div class="btn-menu"></div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="container sobre section" data-anime="scroll" id="home">
+    <h1 class="titulo">Sistema Solar</h1>
+    <ul class="sobre__planetas" data-tab="menu">
+      <li><img src="./assets/img/sol.jpg" alt="sol"></li>
+      <li><img src="./assets/img/mercurio.jpg" alt="Mercúrio"></li>
+      <li><img src="./assets/img/venus.jpg" alt="Vênus"></li>
+      <li><img src="./assets/img/terra.jpg" alt="terra"></li>
+      <li><img src="./assets/img/marte.jpg" alt="marte"></li>
+      <li><img src="./assets/img/jupiter.jpg" alt="jupiter"></li>
+      <li><img src="./assets/img/saturno.jpg" alt="saturno"></li>
+      <li><img src="./assets/img/urano.jpg" alt="urano"></li>
+      <li><img src="./assets/img/netuno.jpg" alt="netuno"></li>
+    </ul>
+    <div class="sobre__descricao" data-tab="content">
+      <section data-anime="show-right">
+        <h2>Sol</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, quaerat obcaecati reprehenderit repellendus recusandae voluptatibus ipsam atque incidunt provident.</p>
+        <p>Aut accusantium animi eos voluptate blanditiis officiis, error quasi, praesentium neque laudantium voluptatum nisi atque maxime cumque asperiores. Odit, nemo aperiam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, quaerat obcaecati reprehenderit repellendus recusandae voluptatibus ipsam atque incidunt provident. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, quaerat obcaecati reprehenderit repellendus recusandae voluptatibus ipsam atque incidunt provident.</p>
+      </section>
+
+      <section data-anime="show-right">
+        <h2>Mercúrio</h2>
+        <p>Etiam vitae consectetur tortor. Suspendisse eget metus non tortor porta ultrices. Proin id ullamcorper enim, in fermentum nulla.</p>
+        <p>Aliquam non euismod libero. Proin ex tellus, vestibulum ac odio a, consequat tempus magna. Vivamus congue ligula at dictum venenatis. Phasellus et aliquet odio. Quisque ligula justo, porttitor in facilisis ut, iaculis vel purus. Etiam vitae consectetur tortor. Suspendisse eget metus non tortor porta ultrices. Proin id ullamcorper enim, in fermentum nulla.</p>
+      </section>
+
+      <section data-anime="show-right">
+        <h2>Vênus</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, quaerat obcaecati reprehenderit repellendus recusandae voluptatibus ipsam atque incidunt provident.</p>
+        <p>Aut accusantium animi eos voluptate blanditiis officiis, error quasi, praesentium neque laudantium voluptatum nisi atque maxime cumque asperiores. Odit, nemo aperiam.</p>
+      </section>
+
+      <section data-anime="show-right">
+        <h2>Terra</h2>
+        <p>Donec nec felis nulla. Cras velit nisi, volutpat eu feugiat sit amet, mollis in velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tellus nibh.</p>
+        <p>Maecenas non commodo velit. Sed blandit tincidunt luctus. Proin efficitur tristique ornare. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras arcu justo, aliquam vestibulum sagittis id, scelerisque non turpis.</p>
+        <p>Aliquam ac pharetra sem, et cursus quam. Vivamus lacinia nisi eget odio molestie, ac luctus nisl hendrerit. Nullam tempus augue eget neque dignissim elementum. In vitae efficitur nulla. </p>
+      </section>
+
+      <section data-anime="show-right">
+        <h2>Marte</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, quaerat obcaecati reprehenderit repellendus recusandae voluptatibus ipsam atque incidunt provident.</p>
+        <p>Aut accusantium animi eos voluptate blanditiis officiis, error quasi, praesentium neque laudantium voluptatum nisi atque maxime cumque asperiores. Odit, nemo aperiam.</p>
+      </section>
+
+      <section data-anime="show-right">
+        <h2>Jupiter</h2>
+        <p>Etiam vitae consectetur tortor. Suspendisse eget metus non tortor porta ultrices. Proin id ullamcorper enim, in fermentum nulla.</p>
+        <p>Aliquam non euismod libero. Proin ex tellus, vestibulum ac odio a, consequat tempus magna. Vivamus congue ligula at dictum venenatis. Phasellus et aliquet odio. Quisque ligula justo, porttitor in facilisis ut, iaculis vel purus.</p>
+      </section>
+
+      <section data-anime="show-right">
+        <h2>Saturno</h2>
+        <p>Donec nec felis nulla. Cras velit nisi, volutpat eu feugiat sit amet, mollis in velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tellus nibh.</p>
+        <p>Maecenas non commodo velit. Sed blandit tincidunt luctus. Proin efficitur tristique ornare. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras arcu justo, aliquam vestibulum sagittis id, scelerisque non turpis.</p>
+        <p>Aliquam ac pharetra sem, et cursus quam. Vivamus lacinia nisi eget odio molestie, ac luctus nisl hendrerit. Nullam tempus augue eget neque dignissim elementum. In vitae efficitur nulla. </p>
+      </section>
+
+      <section data-anime="show-right">
+        <h2>Urano</h2>
+        <p>Maecenas non commodo velit. Sed blandit tincidunt luctus. Proin efficitur tristique ornare. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras arcu justo, aliquam vestibulum sagittis id, scelerisque non turpis.</p>
+        <p>Aliquam ac pharetra sem, et cursus quam. Vivamus lacinia nisi eget odio molestie, ac luctus nisl hendrerit. Nullam tempus augue eget neque dignissim elementum. In vitae efficitur nulla. </p>
+      </section>
+
+      <section data-anime="show-right">
+        <h2>Netuno</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, quaerat obcaecati reprehenderit repellendus recusandae voluptatibus ipsam atque incidunt provident.</p>
+        <p>Aut accusantium animi eos voluptate blanditiis officiis, error quasi, praesentium neque laudantium voluptatum nisi atque maxime cumque asperiores. Odit, nemo aperiam.</p>
+      </section>
+    </div>
+  </section>
+
+  <section data-anime="scroll" class="curiosidades section container" id="curiosidades">
+    <h1 class="titulo">Curiosidades</h1>
+    <dl class="curiosidades__lista" data-anime="accordion">
+      <dt>Números do Sistema Solar</dt>
+      <dd>A idade do Sistema Solar é de cerca de 4,6 bilhões de anos. Ao todo, são oito planetas, cinco planetas anões, 181 luas, 552.894 asteroides e 3.083 cometas, espalhados ao longo de 18,75 trilhões de quilômetros.</dd>
+      <dt>Girando no sentido oposto</dt>
+      <dd>Vênus é o único planeta do Sistema Solar de rotação retrógrada e que não apresenta qualquer lua, o que sugere um passado violento. Estudos indicam que Vênus colidiu-se com um grande asteroide, o qual alterou o seu sentido de rotação no Sistema Solar.</dd>
+      <dt>O Sol não está mais onde ele parece estar</dt>
+      <dd>O Sol encontra-se a cerca de 150 milhões de quilômetros da Terra. Essa grande distância torna a viagem da luz solar até nós um pouco demorada: pouco mais de oito minutos, mesmo com a luz propagando-se a 300.000 quilômetros por segundo. O caso mais dramático é o de Plutão: a luz solar leva cerca de 5 horas e meia para chegar no planeta anão!</dd>
+    </dl>
+  </section>
+
+  <section data-anime="scroll" class="numeros section container" id="numeros">
+    <h1 class="titulo">Números</h1>
+    <div class="numeros__wrapper">
+      <!-- <div class="numeros__item">
+        <h2>Habitantes na Terra</h2>
+        <span>7,753</span>
+      </div>
+
+      <div class="numeros__item">
+        <h2>Planetas Rochosos</h2>
+        <span>4</span>
+      </div>
+
+      <div class="numeros__item">
+        <h2>Planetas Gasosos</h2>
+        <span>4</span>
+      </div>
+
+      <div class="numeros__item">
+        <h2>Satélites Naturais</h2>
+        <span>178</span>
+      </div> -->
+    </div>
+    <div class="obs"><span>*</span> bilhões</div>
+  </section>
+
+  <section data-anime="scroll" class="contato section container" id="contato">
+    <h1 class="titulo">Contato</h1>
+    <div class="mapa" data-tooltip aria-label="Endereço entre Vênus e Marte.">
+      <img src="./assets/img/mapa.jpg" alt="mapa">
+    </div>
+    <ul class="contato__info">
+      <li>contato@planets.com</li>
+      <li>++55 (99) 99999-9999</li>
+      <li>Rua Perdidos No Espaço, nº 404</li>
+      <li>Espaço Sideral, Universo</li>
+      <li data-semana="1,2,3,4,5" data-horario="7,17">Seg à Sex das 7 às 17</li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><i class="fa-solid fa-star-and-crescent"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <section data-modal="container" class="modal-container">
+    <div class="modal">
+      <button class="fechar-btn" data-modal="fechar"><i class="fas fa-times"></i></button>
+      <form>
+        <label for="email">Email</label>
+        <input type="text" naem="email" id="email">
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" id="senha">
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="modal-container" data-imagem="container">
+    <div class="modal">
+      <button class="fechar-btn" data-imagem="fechar"><i class="fas fa-times"></i></button>
+      <div class="img-container">
+        <img data-imagem="img" src="" alt="">
+      </div>
+    </div>
+  </section>
+
+  <script src="./app/js/index.js" defer></script>
+</body>
+
+</html>
