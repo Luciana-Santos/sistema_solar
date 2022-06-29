@@ -3,6 +3,8 @@
 
 Projeto final do curso de JavaScript Completo da [Origamid](https://www.origamid.com/curso/javascript-completo-es6/)
 
+[Live](https://sistema-solar-luciana.netlify.app/)
+
 
 ## Instalação
 
