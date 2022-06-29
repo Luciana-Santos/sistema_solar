@@ -87,5 +87,12 @@
         color: var(--cl-vdark-blue);
       }
     }
+
+    h3 {
+      margin-top: rem(20);
+      text-align: center;
+      font-size: rem(24);
+      color: var(--cl-accent);
+    }
   }
 }
