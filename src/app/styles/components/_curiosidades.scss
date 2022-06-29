@@ -1,0 +1,44 @@
+@use '../utils' as *;
+
+.curiosidades {
+  
+  &__lista {
+    padding-top: rem(20);
+    margin-top: rem(-20);
+
+    dt {
+      font-family: var(--ff-ibm);
+      position: relative;
+      padding-left: rem(40);
+      color: var(--cl-accent);
+      font-weight: bold;
+      margin-bottom: rem(15);
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        background: var(--cl-white);
+        display: inline-block;
+        width: rem(8);
+        height: rem(8);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
+
+    dd {
+      display: none;
+      margin-left: 40px;
+      margin-bottom: rem(20);
+      font-family: var(--ff-body);
+    }
+  }
+}
+
+[data-anime="accordion"] dd.ativo {
+  display: block;
+  animation: slideDown .5s forwards;
+}

@@ -1,0 +1,55 @@
+@use '../utils' as *;
+
+[data-dropdown] {
+  position: relative;
+
+  & .menu-dropdown {
+    background-color: var(--cl-accent);
+    position: static;
+    animation: show-up .3s forwards;
+
+    a {
+      margin-left: rem(15);
+
+      @include breakpoint(medium){
+        margin-left: 0;
+      }
+
+      &:hover {
+        font-weight: bold;
+        color: var(--cl-white);
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      display: block;
+      height: rem(10);
+      width: rem(10);
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid var(--cl-accent);
+    }
+
+    @include breakpoint(medium) {
+      display: none;
+      position: absolute;
+      padding-inline: rem(20) rem(30);
+    }
+  }
+  
+  @include breakpoint(medium) {
+    &:hover .menu-dropdown, &.ativo .menu-dropdown {
+      display: block;
+      animation: show-up .3s forwards;
+    }
+
+    li {
+      margin-left: 0;
+    }
+  }
+}
+
