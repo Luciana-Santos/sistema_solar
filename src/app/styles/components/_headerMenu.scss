@@ -3,10 +3,10 @@
 .header {
   background-color: var(--cl-vdark-blue);
   padding-block: rem(15);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // right: 0;
   z-index: 999;
 
   &__nav {
@@ -26,6 +26,7 @@
     background: var(--cl-vdark-blue);
     padding-block: rem(50) rem(20);
     box-shadow: -2px 2px 2px 0 rgba(90, 221, 210, 0.1);
+    z-index: 999;
 
     a {
       display: inline-block;
@@ -81,7 +82,7 @@
       transition: all .3s ease-in-out;
       display: grid;
       align-items: center;
-
+      z-index: 1000;
   
       &::before, &::after {
         content: '';
