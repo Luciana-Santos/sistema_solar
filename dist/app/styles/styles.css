@@ -137,10 +137,6 @@ body {
 .header {
   background-color: var(--cl-vdark-blue);
   padding-block: 0.9375rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   z-index: 999;
 }
 .header__nav {
@@ -160,6 +156,7 @@ body {
   background: var(--cl-vdark-blue);
   padding-block: 3.125rem 1.25rem;
   box-shadow: -2px 2px 2px 0 rgba(90, 221, 210, 0.1);
+  z-index: 999;
 }
 .header__menu a {
   display: inline-block;
