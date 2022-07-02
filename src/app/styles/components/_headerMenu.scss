@@ -82,7 +82,7 @@
       transition: all .3s ease-in-out;
       display: grid;
       align-items: center;
-
+      z-index: 1000;
   
       &::before, &::after {
         content: '';
