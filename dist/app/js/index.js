@@ -895,9 +895,10 @@ var MenuMobile = /*#__PURE__*/function () {
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(MenuMobile, [{
     key: "openMenu",
-    value: function openMenu() {
+    value: function openMenu(event) {
       var _this = this;
 
+      event.preventDefault();
       this.menuList.classList.add(this.activeClass);
       this.menuBtn.classList.add(this.activeClass);
       (0,_outsideClick__WEBPACK_IMPORTED_MODULE_2__["default"])(this.menuList, this.events, function () {
