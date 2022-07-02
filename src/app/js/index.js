@@ -59,7 +59,6 @@ funcionamento.init();
 
 fetchNumeros('./dados.json', '.numeros__wrapper');
 
-const slide = new SlideNav('.slide', '.wrapper');
+const slide = new SlideNav('.slide', '.slide-wrapper');
 slide.init();
-slide.addArrow('.prev', '.next');
 slide.addControl('.custom-control');

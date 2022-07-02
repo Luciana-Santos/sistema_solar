@@ -1,4 +1,4 @@
-import debounce from './debounce.js';
+import debounce from './debounce';
 
 export class Slide {
   constructor(slide, wrapper) {
@@ -42,10 +42,9 @@ export class Slide {
   }
 
   onMove(event) {
-    const pointerPosition =
-      event.type === 'mousemove'
-        ? event.clientX
-        : event.changedTouches[0].clientX;
+    const pointerPosition = event.type === 'mousemove'
+      ? event.clientX
+      : event.changedTouches[0].clientX;
     const finalPosition = this.updatePosition(pointerPosition);
     this.moveSlide(finalPosition);
   }
@@ -116,9 +115,7 @@ export class Slide {
   }
 
   changeActiveSlide() {
-    this.slideArray.forEach((item) =>
-      item.element.classList.remove(this.activeClass),
-    );
+    this.slideArray.forEach((item) => item.element.classList.remove(this.activeClass));
     this.slideArray[this.index.active].element.classList.add(this.activeClass);
   }
 
@@ -193,15 +190,12 @@ export default class SlideNav extends Slide {
   }
 
   activeControlItem() {
-    this.controlArray.forEach((item) =>
-      item.classList.remove(this.activeClass),
-    );
+    this.controlArray.forEach((item) => item.classList.remove(this.activeClass));
     this.controlArray[this.index.active].classList.add(this.activeClass);
   }
 
   addControl(customControl) {
-    this.control =
-      document.querySelector(customControl) || this.createControl();
+    this.control = document.querySelector(customControl) || this.createControl();
     this.controlArray = [...this.control.children];
 
     this.activeControlItem();

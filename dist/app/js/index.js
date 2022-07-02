@@ -1210,7 +1210,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _debounce_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./debounce.js */ "./src/app/js/modules/debounce.js");
+/* harmony import */ var _debounce__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./debounce */ "./src/app/js/modules/debounce.js");
 
 
 
@@ -1392,7 +1392,7 @@ var Slide = /*#__PURE__*/function () {
       this.onEnd = this.onEnd.bind(this);
       this.activePrevSlide = this.activePrevSlide.bind(this);
       this.activeNextSlide = this.activeNextSlide.bind(this);
-      this.onResize = (0,_debounce_js__WEBPACK_IMPORTED_MODULE_6__["default"])(this.onResize.bind(this), 200);
+      this.onResize = (0,_debounce__WEBPACK_IMPORTED_MODULE_6__["default"])(this.onResize.bind(this), 200);
     }
   }, {
     key: "init",
@@ -2155,9 +2155,8 @@ menuMobile.init();
 var funcionamento = new _modules_funcionamento__WEBPACK_IMPORTED_MODULE_10__["default"]('[data-semana]', 'aberto');
 funcionamento.init();
 (0,_modules_fetchNumeros__WEBPACK_IMPORTED_MODULE_1__["default"])('./dados.json', '.numeros__wrapper');
-var slide = new _modules_slide__WEBPACK_IMPORTED_MODULE_11__["default"]('.slide', '.wrapper');
+var slide = new _modules_slide__WEBPACK_IMPORTED_MODULE_11__["default"]('.slide', '.slide-wrapper');
 slide.init();
-slide.addArrow('.prev', '.next');
 slide.addControl('.custom-control');
 })();
 
