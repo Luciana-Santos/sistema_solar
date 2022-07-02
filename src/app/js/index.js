@@ -9,6 +9,7 @@ import Tooltip from './modules/tooltip';
 import DropdownMenu from './modules/dropdownMenu';
 import MenuMobile from './modules/menuMobile';
 import Funcionamento from './modules/funcionamento';
+import SlideNav from './modules/slide';
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -57,3 +58,7 @@ const funcionamento = new Funcionamento('[data-semana]', 'aberto');
 funcionamento.init();
 
 fetchNumeros('./dados.json', '.numeros__wrapper');
+
+const slide = new SlideNav('.slide', '.slide-wrapper');
+slide.init();
+slide.addControl('.custom-control');
