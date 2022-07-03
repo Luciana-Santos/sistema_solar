@@ -326,7 +326,6 @@ body {
   font-weight: bold;
   margin-bottom: 0.9375rem;
   cursor: pointer;
-  transition: 0.3s;
 }
 .curiosidades__lista dt::before {
   content: "";
