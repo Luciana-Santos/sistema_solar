@@ -14,6 +14,7 @@
       font-weight: bold;
       margin-bottom: rem(15);
       cursor: pointer;
+      transition: .3s;
 
       &::before {
         content: '';
@@ -26,6 +27,23 @@
         top: 50%;
         left: 0;
         transform: translateY(-50%);
+      }
+
+      &::after {
+        content: '';
+        display: inline-block;
+        background: url('../../../assets/img/arrow.svg') no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: rem(10);
+        height: rem(10);
+        margin-left: 10px;
+        transition: .3s;
+      }
+
+      &.ativo::after {
+        content: '';
+        transform: rotate(90deg);
       }
     }
 
