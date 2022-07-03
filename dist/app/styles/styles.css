@@ -551,7 +551,6 @@ body {
   border-radius: 4px;
   width: 37.5rem;
   max-width: 80vw;
-  margin-block: 3.75rem;
 }
 .modal-container .modal label {
   display: block;
