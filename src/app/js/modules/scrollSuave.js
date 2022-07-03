@@ -1,17 +1,18 @@
 export default class ScrollSuave {
-  constructor(links) {
+  constructor(links, options) {
     this.linksInternos = document.querySelectorAll(links);
+    if (options === undefined) {
+      this.options = { behavior: 'smooth', block: 'start' };
+    } else {
+      this.options = options;
+    }
   }
 
   scrollToSection(e) {
     e.preventDefault();
     const href = this.getAttribute('href');
     const section = document.querySelector(href);
-    const sectionTop = section.offsetTop - 60;
-    window.scrollTo({
-      top: sectionTop,
-      behavior: 'smooth',
-    });
+    section.scrollIntoView(this.options);
   }
 
   addLinkEvent() {
