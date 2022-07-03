@@ -172,6 +172,10 @@ body {
 .header__menu a:hover {
   color: var(--cl-accent);
 }
+.header__menu a:hover svg * {
+  stroke: var(--cl-accent);
+  fill: var(--cl-accent);
+}
 @media (min-width: 43.75em) {
   .header__menu a {
     padding-inline: 0;
@@ -246,6 +250,15 @@ body {
 }
 [data-menu=btn].ativo .btn-menu::after {
   transform: rotate(-45deg) translate(-10px, -10px);
+}
+
+.arrow-menu svg {
+  width: 10px;
+  height: 10px;
+}
+.arrow-menu svg * {
+  stroke: var(--cl-body);
+  fill: var(--cl-body);
 }
 
 .sobre {
@@ -325,6 +338,21 @@ body {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
+}
+.curiosidades__lista dt::after {
+  content: "";
+  display: inline-block;
+  background: url("../../../assets/img/arrow.svg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 0.625rem;
+  height: 0.625rem;
+  margin-left: 10px;
+  transition: 0.3s;
+}
+.curiosidades__lista dt.ativo::after {
+  content: "";
+  transform: rotate(90deg);
 }
 .curiosidades__lista dd {
   display: none;
