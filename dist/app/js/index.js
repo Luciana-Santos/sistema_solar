@@ -1148,10 +1148,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ScrollSuave = /*#__PURE__*/function () {
-  function ScrollSuave(links) {
+  function ScrollSuave(links, options) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, ScrollSuave);
 
     this.linksInternos = document.querySelectorAll(links);
+
+    if (options === undefined) {
+      this.options = {
+        behavior: 'smooth',
+        block: 'start'
+      };
+    } else {
+      this.options = options;
+    }
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(ScrollSuave, [{
@@ -1160,11 +1169,7 @@ var ScrollSuave = /*#__PURE__*/function () {
       e.preventDefault();
       var href = this.getAttribute('href');
       var section = document.querySelector(href);
-      var sectionTop = section.offsetTop - 60;
-      window.scrollTo({
-        top: sectionTop,
-        behavior: 'smooth'
-      });
+      section.scrollIntoView(this.options);
     }
   }, {
     key: "addLinkEvent",
