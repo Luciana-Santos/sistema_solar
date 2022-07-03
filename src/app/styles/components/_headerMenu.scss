@@ -3,10 +3,6 @@
 .header {
   background-color: var(--cl-vdark-blue);
   padding-block: rem(15);
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // right: 0;
   z-index: 999;
 
   &__nav {
@@ -41,6 +37,11 @@
 
       &:hover {
         color: var(--cl-accent);
+
+        svg * {
+          stroke: var(--cl-accent);
+          fill: var(--cl-accent);
+        }
       }
 
       @include breakpoint(medium) {
@@ -126,5 +127,15 @@
 
   .btn-menu::after {
     transform: rotate(-45deg) translate(-10px, -10px);
+  }
+}
+
+.arrow-menu svg{
+  width: 10px;
+  height: 10px;
+
+  * {
+    stroke: var(--cl-body);
+    fill: var(--cl-body);
   }
 }

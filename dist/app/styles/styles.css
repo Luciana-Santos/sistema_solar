@@ -172,6 +172,10 @@ body {
 .header__menu a:hover {
   color: var(--cl-accent);
 }
+.header__menu a:hover svg * {
+  stroke: var(--cl-accent);
+  fill: var(--cl-accent);
+}
 @media (min-width: 43.75em) {
   .header__menu a {
     padding-inline: 0;
@@ -246,6 +250,15 @@ body {
 }
 [data-menu=btn].ativo .btn-menu::after {
   transform: rotate(-45deg) translate(-10px, -10px);
+}
+
+.arrow-menu svg {
+  width: 10px;
+  height: 10px;
+}
+.arrow-menu svg * {
+  stroke: var(--cl-body);
+  fill: var(--cl-body);
 }
 
 .sobre {
