@@ -97,7 +97,7 @@ Passo a passo de como rodar o projeto localmente.
 
 1. Clone o repositório
    ```sh
-   gh repo clone Luciana-Santos/Lucianadss-portfolio
+   gh repo clone Luciana-Santos/sistema_solar
    ```
 2. Instale as dependências do projeto
    ```sh
